@@ -1,3 +1,38 @@
 .aboutcard{
     padding : 19%
 }
+
+.detailedform{
+    padding-top: 100px;
+    padding-bottom: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+.onlyform{
+    border: 3px solid rgb(214, 222, 245);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+.mapabove{
+    padding:20px;
+  }
+
+.mapcontain{
+height:100px;
+padding: 20px;
+margin: 10px;
+}
+
+
+.aboutuscardclass:hover{
+    background: white;
+    opacity: 0.5;
+
+}
