@@ -7,9 +7,9 @@ export default function Header(props) {
     return (
         // <div className = "container">
         <Navbar bg="dark" variant="dark" expand="lg">
-            <Link to="/" className="navbar-brand"> NGO Helper</Link>
+            {/* <Link to="/" className="navbar-brand">  NGO Helper</Link> */}
             <Container>
-                {/* <Navbar.Brand href="#home">Home</Navbar.Brand> */}
+                <Navbar.Brand href="/">NGO Helper</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
