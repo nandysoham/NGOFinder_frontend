@@ -22,7 +22,7 @@ export default function ContactMaps(props) {
       });
 
       return (
-        <div>
+        <div className="container">
           <div ref={mapContainer} className="map-container" />
 
         </div>

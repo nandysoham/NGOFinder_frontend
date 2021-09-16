@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
+import ToggleMode from '../ToggleMode'
+
+import '../ToggleMode/Toggle.css';
 
 export default function Header(props) {
+
+    const getMode = () => {
+        return JSON.parse(localStorage.getItem("Mode")) || false;
+    }
+
+
+    const [dark, setMode] = useState(getMode);
+
+    useEffect(() => {
+        localStorage.setItem("Mode", JSON.stringify(dark))
+    }, [dark]);
+
+
+
+
     return (
         // <div className = "container">
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg={dark ? "dark" : "light"} variant={dark ? "dark" : "light"} expand="lg">
             {/* <Link to="/" className="navbar-brand">  NGO Helper</Link> */}
             <Container>
                 <Navbar.Brand href="/">NGO Helper</Navbar.Brand>
@@ -29,13 +47,27 @@ export default function Header(props) {
                         {/* <Nav.Link href="#deets">Signin</Nav.Link> */}
 
                         {/* this whole part needs to be activated with the same classes as in bootsrap so that the design remains the same */}
+
                         <li className="nav-item">
-                            <NavLink to="signin" className="nav-link"> Signin </NavLink>
+                            <NavLink to="signin" className="nav-link"> SignIn </NavLink>
 
                         </li>
                         <li className="nav-item">
-                            <NavLink to="signup" className="nav-link"> Signup </NavLink>
+                            <NavLink to="signup" className="nav-link"> SignUp </NavLink>
 
+                        </li>
+
+                        <li className="nav-item">
+                            <>
+                                <label className="switch">
+                                    <input
+                                        type="checkbox"
+                                        checked ={dark}
+                                        onChange={() => setMode(!dark)}
+                                    />
+                                    <span className="slider round"></span>
+                                </label>
+                            </>
                         </li>
                     </Nav>
                 </Navbar.Collapse>

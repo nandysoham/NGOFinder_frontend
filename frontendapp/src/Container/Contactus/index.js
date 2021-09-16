@@ -24,9 +24,17 @@ export default function Contactus() {
                 </div>
 
                     <div className="container mapcontain">
-                        <ContactMaps>
+                        <div className="row">
+                            <div className="col-8">
+                            <ContactMaps>
 
-                        </ContactMaps>
+                            </ContactMaps>
+                            </div>
+
+                            <div className="col-4">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, architecto assumenda quaerat mollitia sed facilis soluta explicabo hic alias qui dignissimos quis repellendus aperiam voluptas nostrum quo odio atque, ullam voluptatibus. Beatae, dolores quasi officiis ullam totam illum esse! Est dolor minus perspiciatis quidem vitae omnis saepe beatae sunt eos.
+                            </div>
+                        </div>
 
                     </div>
                 </div>

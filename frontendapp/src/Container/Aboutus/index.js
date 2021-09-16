@@ -27,10 +27,10 @@ export default function Aboutus() {
                                     <Card className="aboutuscardclass">
                                         <Card.Img variant="top" src="img/emptyprofile.png" />
                                         
-                                        <Card.ImgOverlay >
-                                            <Card.Body>
-                                                <Card.Title>Card title</Card.Title>
-                                                <Card.Text>
+                                        <Card.ImgOverlay className = "overlaycard">
+                                            <Card.Body> 
+                                                <Card.Title className="cardtext">Card title</Card.Title>
+                                                <Card.Text className="cardtext">
 
                                                     This is a longer card with supporting text below as a natural
                                                     lead-in to additional content. This content is a little bit longer.
