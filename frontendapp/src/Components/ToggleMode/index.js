@@ -12,6 +12,3 @@ export default (props) => {
   );
 };
 
-
-    // onChange={setIsDarkMode}
-    // checked={isDarkMode}
