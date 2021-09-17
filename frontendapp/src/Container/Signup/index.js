@@ -3,12 +3,12 @@ import Layout from '../../Components/Layout'
 import { Container, Card, CardGroup, Row, Col, Form, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-export default function Signin() {
+export default function Signin(props) {
     return (
         <div>
-            <Layout>
+            <Layout mode = {props.mode} Togglemode = {props.Togglemode}>
                 <div style={{
-                    backgroundImage: "url(/img/signinup.jpg)",
+                    backgroundImage: props.mode ? "url(/img/signinupblack.jpg)" :"url(/img/signinup.jpg)",
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
                     backgroundSize: "cover",

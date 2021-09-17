@@ -2,10 +2,10 @@ import React from 'react'
 import { Jumbotron, Carousel } from 'react-bootstrap'
 import Layout from '../../Components/Layout'
 
-export default function Home() {
+export default function Home(props) {
     return (
         <div>
-            <Layout>
+            <Layout mode={props.mode} Togglemode={props.Togglemode}>
                 <Carousel fade>
                     <Carousel.Item>
                         <img

@@ -4,23 +4,23 @@ import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
 import ToggleMode from '../ToggleMode'
 
-import '../ToggleMode/Toggle.css';
+// import '../ToggleMode/Toggle.css';
 
 export default function Header(props) {
 
-    const getMode = () => {
-        return JSON.parse(localStorage.getItem("Mode")) || false;
-    }
+    // const getMode = () => {
+    //     return JSON.parse(localStorage.getItem("Mode")) || false;
+    // }
 
 
-    const [dark, setMode] = useState(getMode);
+    // const [dark, setMode] = useState(getMode);
 
-    useEffect(() => {
-        localStorage.setItem("Mode", JSON.stringify(dark))
-    }, [dark]);
+    // useEffect(() => {
+    //     localStorage.setItem("Mode", JSON.stringify(dark))
+    // }, [dark]);
 
 
-
+    let dark = props.mode;
 
     return (
         // <div className = "container">
@@ -58,16 +58,17 @@ export default function Header(props) {
                         </li>
 
                         <li className="nav-item">
-                            <>
+                            <ToggleMode dark = {props.dark} Togglemode = {props.Togglemode}></ToggleMode>
+                            {/* <>
                                 <label className="switch">
                                     <input
                                         type="checkbox"
-                                        checked ={dark}
-                                        onChange={() => setMode(!dark)}
+                                        // checked ={dark}
+                                        onChange={props.Togglemode}
                                     />
                                     <span className="slider round"></span>
                                 </label>
-                            </>
+                            </> */}
                         </li>
                     </Nav>
                 </Navbar.Collapse>

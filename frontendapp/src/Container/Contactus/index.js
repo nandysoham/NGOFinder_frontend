@@ -5,10 +5,10 @@ import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
-export default function Contactus() {
+export default function Contactus(props) {
     return (
         <div>
-            <Layout>
+            <Layout mode = {props.mode} Togglemode = {props.Togglemode}>
                 <div style={{
                     backgroundImage: "url(/img/aboutusbg.jpg)",
                     backgroundRepeat: 'no-repeat',
