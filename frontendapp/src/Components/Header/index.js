@@ -32,15 +32,16 @@ export default function Header(props) {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/aboutus">About Us</Nav.Link>
-                        <Nav.Link href="/contactus">Contact Us</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                        <NavLink className="nav-item nav-link" to="/aboutus">About Us</NavLink>
+                        <NavLink className="nav-item nav-link" to="/contactus">Contact Us</NavLink>
+                        <NavLink className="nav-item nav-link" to="/aboutus"><strong>Blog</strong></NavLink>
+                        {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
                     </Nav>
 
                     <Nav>

@@ -56,25 +56,3 @@
 
 
 
-/* cards here ----- */
-
-
-.aboutuscardclass:hover{
-    background: white;
-    opacity: 0.5;
-}
-
-.overlaycard{
-    opacity:0;
-   
-
-}
-
-.overlaycard:hover{
-    opacity:1;
-    
-}
-
-.cardtext{
-    text-align: center;
-}
