@@ -18,7 +18,7 @@ export default function Aboutus(props) {
         },
         {
             image:"/img/members/soham.jpeg",
-            name :"Soham Nandy",
+            name :"",
             role: "Full Stack Developer",
             github:"",
             facebook:"",
@@ -26,7 +26,7 @@ export default function Aboutus(props) {
         },
         {
             image:"/img/members/soham.jpeg",
-            name :"Soham Nandy",
+            name :"",
             role: "Full Stack Developer",
             github:"",
             facebook:"",
@@ -34,7 +34,7 @@ export default function Aboutus(props) {
         },
         {
             image:"/img/members/soham.jpeg",
-            name :"Soham Nandy",
+            name :"",
             role: "Full Stack Developer",
             github:"",
             facebook:"",
@@ -42,7 +42,7 @@ export default function Aboutus(props) {
         },
         {
             image:"/img/members/soham.jpeg",
-            name :"Soham Nandy",
+            name :"",
             role: "Full Stack Developer",
             github:"",
             facebook:"",
@@ -50,7 +50,7 @@ export default function Aboutus(props) {
         },
         {
             image:"/img/members/soham.jpeg",
-            name :"Soham Nandy",
+            name :"",
             role: "Full Stack Developer",
             github:"",
             facebook:"",
@@ -81,7 +81,7 @@ export default function Aboutus(props) {
                         <Row xs={1} md={3} className="g-4">
                             {Array.from({ length: 6 }).map((_, idx) => (
                                 <Col>
-                                    <Card className="aboutuscardclass">
+                                    <Card className="aboutuscardclass ">
                                         <Card.Img variant="top" src={memberdetails[idx].image} style={{height:"400px" , position:"center"}} />
                                         {/* <Card.Img variant="top" src="/img/members/soham.jpeg" /> */}
                                         
