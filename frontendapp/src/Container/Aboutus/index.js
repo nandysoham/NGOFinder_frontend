@@ -33,10 +33,10 @@ export default function Aboutus(props) {
             linkedin:"",
         },
         {
-            image:"/img/members/soham.jpeg",
-            name :"",
+            image:"/img/members/devansh.jpeg",
+            name :"Devansh Verma",
             role: "Full Stack Developer",
-            github:"",
+            github:"https://github.com/devella1",
             facebook:"",
             linkedin:"",
         },
