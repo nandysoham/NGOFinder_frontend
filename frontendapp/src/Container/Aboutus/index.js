@@ -25,10 +25,10 @@ export default function Aboutus(props) {
             linkedin:"",
         },
         {
-            image:"/img/members/soham.jpeg",
-            name :"",
+            image:"/img/members/harmit.jpg",
+            name :"Harmit Singh Bains",
             role: "Full Stack Developer",
-            github:"",
+            github:"https://github.com/harmitsb2122",
             facebook:"",
             linkedin:"",
         },
