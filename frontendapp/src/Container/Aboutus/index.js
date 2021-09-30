@@ -25,7 +25,7 @@ export default function Aboutus(props) {
             linkedin:"",
         },
         {
-            image:"/img/members/harmit.jpg",
+            image:"/img/members/harmit.JPG",
             name :"Harmit Singh Bains",
             role: "Full Stack Developer",
             github:"https://github.com/harmitsb2122",
