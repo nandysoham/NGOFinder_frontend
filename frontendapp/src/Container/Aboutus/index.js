@@ -17,11 +17,11 @@ export default function Aboutus(props) {
             linkedin:"",
         },
         {
-            image:"/img/members/soham.jpeg",
-            name :"",
+            image:"/img/members/ishaan.jpg",
+            name :"Ishaan Kulkarni",
             role: "Full Stack Developer",
-            github:"",
-            facebook:"",
+            github:"https://github.com/IshaanKulkarni",
+            facebook:"https://www.facebook.com/profile.php?id=100071951246160",
             linkedin:"",
         },
         {
