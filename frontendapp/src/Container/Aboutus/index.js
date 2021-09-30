@@ -81,7 +81,7 @@ export default function Aboutus(props) {
                         <Row xs={1} md={3} className="g-4">
                             {Array.from({ length: 6 }).map((_, idx) => (
                                 <Col>
-                                    <Card className="aboutuscardclass ">
+                                    <Card className="aboutuscardclass my-3 ">
                                         <Card.Img variant="top" src={memberdetails[idx].image} style={{height:"400px" , position:"center"}} />
                                         {/* <Card.Img variant="top" src="/img/members/soham.jpeg" /> */}
                                         
@@ -91,9 +91,9 @@ export default function Aboutus(props) {
                                                 <Card.Text className="cardtext" style={{color : props.mode ? "white" : "white"}}>
                                                     {memberdetails[idx].role}
                                                 <div className="container" style={{padding:"5px"}}>
-                                                    <a href={memberdetails[idx].github}><i className="fa fa-github fa-2x" style={{padding:"7px" }}/></a>
-                                                    <a href={memberdetails[idx].facebook}> <i className="fa fa-facebook fa-2x" style={{padding:"7px"}}/></a>
-                                                    <a href={memberdetails[idx].linkedin}><i className="fa fa-linkedin fa-2x" style={{padding:"7px"}}></i></a>
+                                                    <a target="_blank" href={memberdetails[idx].github}><i className="fa fa-github fa-2x" style={{padding:"7px" }}/></a>
+                                                    <a target="_blank" href={memberdetails[idx].facebook}> <i className="fa fa-facebook fa-2x" style={{padding:"7px"}}/></a>
+                                                    <a target="_blank" href={memberdetails[idx].linkedin}><i className="fa fa-linkedin fa-2x" style={{padding:"7px"}}></i></a>
                                                      
 
                                                 </div>

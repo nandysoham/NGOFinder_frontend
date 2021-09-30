@@ -1,0 +1,6 @@
+
+/* this is important for removing the annoying line while using dark mode */
+.nav-tabs {
+    border-bottom: 0px;
+
+}

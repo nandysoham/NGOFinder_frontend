@@ -34,7 +34,7 @@ export default function Header(props) {
                         <Nav.Link href="/">Home</Nav.Link>
                         <NavLink className="nav-item nav-link" to="/aboutus">About Us</NavLink>
                         <NavLink className="nav-item nav-link" to="/contactus">Contact Us</NavLink>
-                        <NavLink className="nav-item nav-link" to="/aboutus"><strong>Blog</strong></NavLink>
+                        <NavLink className="nav-item nav-link" to="/blogs"><strong>Blog</strong></NavLink>
                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
