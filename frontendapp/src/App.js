@@ -40,7 +40,7 @@ function App() {
       setMode(() => false)
     }
     else {
-      document.body.style.backgroundColor = "#2c3033"
+      document.body.style.backgroundColor = "#1c1c1c"
       setMode(() => true)
     }
   }

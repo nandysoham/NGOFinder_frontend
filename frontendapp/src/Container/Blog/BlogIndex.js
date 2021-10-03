@@ -9,7 +9,7 @@ export default function BlogIndex(props) {
         <div>
             <Layout mode = {props.mode} Togglemode = {props.Togglemode}>
 
-                <BlogNav/>
+                <BlogNav mode={props.mode} Togglemode={props.Togglemode}/>
                 <Blogdetails mode={props.mode} Togglemode={props.Togglemode}/>
             </Layout>
             
