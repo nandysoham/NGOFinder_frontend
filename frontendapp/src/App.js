@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import React, { lazy, Suspense, useState, useEffect } from "react";
+// import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
 import './App.css';
 
 // this line is a must

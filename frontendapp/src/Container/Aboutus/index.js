@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import Layout from '../../Components/Layout'
-import { Container, Card, CardGroup, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import {  Card,  Row, Col } from 'react-bootstrap'
+
 
 import "./aboutus.css";
 
 export default function Aboutus(props) {
-
+    // eslint-disable-next-line
     const [memberdetails, setmemberdetails] = useState([
         {
             image:"/img/members/soham.jpeg",
@@ -91,9 +91,9 @@ export default function Aboutus(props) {
                                                 <Card.Text className="cardtext" style={{color : props.mode ? "white" : "white"}}>
                                                     {memberdetails[idx].role}
                                                 <div className="container" style={{padding:"5px"}}>
-                                                    <a target="_blank" href={memberdetails[idx].github}><i className="fa fa-github fa-2x" style={{padding:"7px" }}/></a>
-                                                    <a target="_blank" href={memberdetails[idx].facebook}> <i className="fa fa-facebook fa-2x" style={{padding:"7px"}}/></a>
-                                                    <a target="_blank" href={memberdetails[idx].linkedin}><i className="fa fa-linkedin fa-2x" style={{padding:"7px"}}></i></a>
+                                                    <a target="_blank" rel="noreferrer" href={memberdetails[idx].github}><i className="fa fa-github fa-2x" style={{padding:"7px" }}/></a>
+                                                    <a target="_blank" rel="noreferrer" href={memberdetails[idx].facebook}> <i className="fa fa-facebook fa-2x" style={{padding:"7px"}}/></a>
+                                                    <a target="_blank" rel="noreferrer" href={memberdetails[idx].linkedin}><i className="fa fa-linkedin fa-2x" style={{padding:"7px"}}></i></a>
                                                      
 
                                                 </div>

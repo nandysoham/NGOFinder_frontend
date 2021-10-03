@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+
 import DarkModeToggle from "react-dark-mode-toggle";
 
-export default (props) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => false);
+export default function Togglemode(props){
+  // const [isDarkMode, setIsDarkMode] = useState(() => false);
   return (
     <DarkModeToggle
       onChange={props.Togglemode}

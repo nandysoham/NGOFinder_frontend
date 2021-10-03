@@ -7,8 +7,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibmFuZHlzb2hhbSIsImEiOiJja3A3MWNrbTIyOWVsMzJtd
 export default function ContactMaps(props) {
     const mapContainer = useRef(null);
     const map = useRef(null);
+    // eslint-disable-next-line 
     const [lng, setLng] = useState(79.47502519716696);
+    // eslint-disable-next-line 
     const [lat, setLat] = useState(13.630144890871433);
+    // eslint-disable-next-line 
     const [zoom, setZoom] = useState(9);
     
     useEffect(() => {

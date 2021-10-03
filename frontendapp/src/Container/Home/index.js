@@ -1,5 +1,5 @@
 import React from 'react'
-import { Jumbotron, Carousel } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 import Layout from '../../Components/Layout'
 
 export default function Home(props) {

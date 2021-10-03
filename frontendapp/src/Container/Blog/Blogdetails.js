@@ -19,17 +19,19 @@ export default function Blogdetails(props) {
     const [recentblogs, setrecentblogs] = useState([])
     const [loader, setloader] = useState(true)
 
-    useEffect(async () => {
-        
-        let recentblogurl = "http://127.0.0.1:2000/api/blog/recententries";
-        axios.get(recentblogurl)
-            .then(res => {
-                const bloglist = res.data;
-                setrecentblogs(bloglist)
-        })
+    useEffect( () => {
+        async function fetchData(){
+            let recentblogurl = "http://127.0.0.1:2000/api/blog/recententries";
+            axios.get(recentblogurl)
+                .then(res => {
+                    const bloglist = res.data;
+                    setrecentblogs(bloglist)
+            })
 
-        setloader(false)
+            setloader(false)
+         }
         
+        fetchData();
     },[recentblogs, loader])
     return (
         <div className="container" >
