@@ -82,7 +82,7 @@ export default function Aboutus(props) {
                             {Array.from({ length: 6 }).map((_, idx) => (
                                 <Col>
                                     <Card className="aboutuscardclass my-3 ">
-                                        <Card.Img variant="top" src={memberdetails[idx].image} style={{height:"400px" , position:"center"}} />
+                                        <Card.Img variant="top" src={memberdetails[idx].image} style={{height:"400px" , position:"center", borderRadius: "15px"}} />
                                         {/* <Card.Img variant="top" src="/img/members/soham.jpeg" /> */}
                                         
                                         <Card.ImgOverlay className = "overlaycard">

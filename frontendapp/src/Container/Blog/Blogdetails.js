@@ -8,7 +8,13 @@ import Spinner from '../../Components/Spinner/Spinner';
 
 
 
-export default function Blogdetails() {
+export default function Blogdetails(props) {
+
+    // added extra for color matching
+    if(props.mode){
+        document.body.style.backgroundColor = "#2c3033"
+    }
+    
 
     const [recentblogs, setrecentblogs] = useState([])
     const [loader, setloader] = useState(true)
@@ -26,15 +32,19 @@ export default function Blogdetails() {
         
     },[recentblogs, loader])
     return (
-        <div className="container">
-            <h2 className="text-center" style={{ margin: "20px", fontFamily: 'Dancing Script' }}><span style={{ fontSize: "50px" }}>Featured Blogs</span></h2>
+        <div className="container" >
+            <h2 className="text-center" style={{ margin: "20px", fontFamily: 'Dancing Script' }}><span style={{ fontSize: "50px", color: props.mode ? "white" : "black"}}>Featured Blogs</span></h2>
             {loader ? 
                 <Spinner/>
             : 
-                <div className="container">
+                <div className="container" style={{maxWidth:"90%"}}>
                     <div className="row">
                         {recentblogs.map((element) => {
-                            return <Blogcard key={element._id} title={element.title} desc = {element.description} baseimgurl = {element.blogPictures[0].img}></Blogcard>
+
+                            return <div className="col " style={{ display:"flex", justifyContent :"center", margin:"0px", padding:"0px"}} key={element._id}>
+                                <Blogcard linktourl={"http://localhost:2000/api/blog/"+element._id} title={element.title} desc = {element.description} baseimgurl = {element.blogPictures[0].img} mode={props.mode} Togglemode={props.Togglemode}></Blogcard>
+                            </div>
+                            
 
                         })}
 
