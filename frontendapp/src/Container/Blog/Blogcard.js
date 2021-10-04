@@ -9,6 +9,7 @@ export default function Blogcard(props) {
             <Card.Img className="cardimgid" variant="top" src={"http://localhost:2000/static/"+props.baseimgurl} style={{ height:"20rem",borderTopRightRadius:"15px", borderTopLeftRadius:"15px"}}/>
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
+                <h6>By {props.name}</h6>
                 <Card.Text>
                     {props.desc}
                 </Card.Text>

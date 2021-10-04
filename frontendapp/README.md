@@ -18,3 +18,20 @@ To pull changes
 and make sure to install additonal packages everytime you pull
 
 `npm install`
+
+
+## Updates:
+<br>
+<br>
+ Blogs Page ready for show ... some minor changes required!
+ <br>
+ <br>
+ Create Blog option will be shown only when user authentication is done
+ <br>
+
+
+ <br>
+ Some pictures:
+ <br>
+
+

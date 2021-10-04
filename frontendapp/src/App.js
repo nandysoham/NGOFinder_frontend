@@ -14,6 +14,7 @@ import Signin from "./Container/Signin"
 import Signup from "./Container/Signup"
 import Contactus from "./Container/Contactus"
 import BlogIndex from "./Container/Blog/BlogIndex"
+import Blogindiv from "./Container/Blog/Blogindiv"
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
           <Route path='/signup' component={() => <Signup mode={mode} Togglemode={Togglemode} />} />
           <Route path='/contactus' component={() => <Contactus mode={mode} Togglemode={Togglemode} />} />
           <Route path='/blogs' exact component={() => <BlogIndex mode={mode} Togglemode={Togglemode} />} />
+          <Route path='/blogs/:id' exact component={() => <Blogindiv mode={mode} Togglemode={Togglemode} />} />
 
 
 
