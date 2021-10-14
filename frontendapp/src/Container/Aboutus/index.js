@@ -41,10 +41,10 @@ export default function Aboutus(props) {
             linkedin:"",
         },
         {
-            image:"/img/members/soham.jpeg",
-            name :"",
+            image:"/img/members/samveg.jpeg",
+            name :"Samveg Shah",
             role: "Full Stack Developer",
-            github:"",
+            github:"https://github.com/Samveg-techie",
             facebook:"",
             linkedin:"",
         },
