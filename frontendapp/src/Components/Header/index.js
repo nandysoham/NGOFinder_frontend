@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
 
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
-import { NavLink, Link } from 'react-router-dom'
+import React from 'react';
+
+
+import { Navbar, Nav, Container } from 'react-bootstrap'
+import { NavLink} from 'react-router-dom'
 import ToggleMode from '../ToggleMode'
 
 // import '../ToggleMode/Toggle.css';

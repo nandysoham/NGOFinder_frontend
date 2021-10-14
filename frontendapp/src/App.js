@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import React, { lazy, Suspense, useState, useEffect } from "react";
+// import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
 import './App.css';
 
 // this line is a must
@@ -14,6 +14,7 @@ import Signin from "./Container/Signin"
 import Signup from "./Container/Signup"
 import Contactus from "./Container/Contactus"
 import BlogIndex from "./Container/Blog/BlogIndex"
+import Blogindiv from "./Container/Blog/Blogindiv"
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
       setMode(() => false)
     }
     else {
-      document.body.style.backgroundColor = "#2c3033"
+      document.body.style.backgroundColor = "#1c1c1c"
       setMode(() => true)
     }
   }
@@ -58,6 +59,7 @@ function App() {
           <Route path='/signup' component={() => <Signup mode={mode} Togglemode={Togglemode} />} />
           <Route path='/contactus' component={() => <Contactus mode={mode} Togglemode={Togglemode} />} />
           <Route path='/blogs' exact component={() => <BlogIndex mode={mode} Togglemode={Togglemode} />} />
+          <Route path='/blogs/:id' exact component={() => <Blogindiv mode={mode} Togglemode={Togglemode} />} />
 
 
 

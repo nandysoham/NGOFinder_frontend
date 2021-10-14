@@ -1,5 +1,7 @@
 /* cards here ----- */
-
+.aboutuscardclass{
+    border-radius: 15px;
+}
 
 .aboutuscardclass:hover{
     background: white;
@@ -8,7 +10,6 @@
 
 .overlaycard{
     opacity:0;
-    
 }
 
 .overlaycard:hover{

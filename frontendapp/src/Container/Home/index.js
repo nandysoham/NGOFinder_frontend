@@ -1,8 +1,12 @@
 import React from 'react'
-import { Jumbotron, Carousel } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 import Layout from '../../Components/Layout'
 
 export default function Home(props) {
+
+    if(props.mode){
+        document.body.style.backgroundColor = "#1c1c1c";
+    }
     return (
         <div>
             <Layout mode={props.mode} Togglemode={props.Togglemode}>

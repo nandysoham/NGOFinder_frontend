@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../Header'
-import { Container } from 'react-bootstrap'
+import Footer from '../Footer/footer'
+
 
 
 export default function Layout(props) {
@@ -11,6 +12,7 @@ export default function Layout(props) {
             {props.children}
 
             {/* </Container> */}
+            <Footer mode={props.mode} Togglemode = {props.Togglemode} ></Footer>
             
         </>
     )
