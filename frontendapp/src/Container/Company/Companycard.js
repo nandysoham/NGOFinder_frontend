@@ -1,11 +1,18 @@
 import React from 'react'
+import "./companycard.css"
+
 
 const Companycard = (props) => {
     return (
-        <div className="card mb-3" style={{maxWidth: "1000px", minHeight:"300px"}}>
-            <div className="row g-0">
-                <div className="col-md-4" style={{minHeight:"300px"}}>
-                    <img src={"http://localhost:2000/staticcompany/"+props.companyprimaryimg} className="img-fluid rounded-start" style={{minHeight:"300px"}} alt="..."/>
+        <div className="card mb-3" style={{
+            maxWidth: "1000px", 
+            minHeight:"300px",
+            boxShadow:"0 4px 8px 0 rgba(0,0,0,0.2)",
+            borderRadius:"10px"
+            }}>
+            <div className="row g-0" style={{minHeight:"300px",borderRadius:"10px"}}>
+                <div className="col-md-4" style={{minHeight:"300px",borderRadius:"10pxpx"}}>
+                    <img src={"http://localhost:2000/staticcompany/"+props.companyprimaryimg} className="img-fluid rounded-start" style={{minHeight:"300px",borderRadius:"10pxpx"}} alt="..."/>
                     </div>
                     <div className="col-md-8" style={{minHeight:"300px"}}>
                         <div className="card-body" style={{minHeight:"300px"}}>

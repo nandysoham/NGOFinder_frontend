@@ -16,7 +16,11 @@ import Contactus from "./Container/Contactus"
 import BlogIndex from "./Container/Blog/BlogIndex"
 import Blogindiv from "./Container/Blog/Blogindiv"
 import ViewCompany  from "./Container/Company/ViewCompany";
+
+
+
 import CompanyState from "./Context/Company/CompanyState";
+import ErrorPage from "./Container/Error/ErrorPage";
 
 function App() {
 
@@ -63,10 +67,11 @@ function App() {
           <Route path='/contactus' component={() => <Contactus mode={mode} Togglemode={Togglemode} />} />
           <Route path='/blogs' exact component={() => <BlogIndex mode={mode} Togglemode={Togglemode} />} />
           <Route path='/blogs/:id' exact component={() => <Blogindiv mode={mode} Togglemode={Togglemode} />} />
+          
 
 
           <Route exact path='/company/viewcompany/bydistance' component={() => <ViewCompany mode={mode} Togglemode={Togglemode} />} />
-
+          <Route component={()=> <ErrorPage/>}/>
 
           {/* earlier */}
           {/* <Route  path='/contactus' component = {Contactus}  mode = {mode}/> */}

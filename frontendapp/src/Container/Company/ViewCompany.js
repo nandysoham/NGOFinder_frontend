@@ -11,7 +11,7 @@ export default function ViewCompany(props){
 
     useEffect(() => {
         fetchcompanies()
-    }, [companies])
+    }, [])
     return (
         <div>
             <Layout mode = {props.mode} Togglemode = {props.Togglemode}>
