@@ -10,7 +10,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from "./Container/Home"
 import Aboutus from "./Container/Aboutus"
-import Signin from "./Container/Signin"
+
+import Signinoption from "./Container/Signin/signinoption"
+import Signin from "./Container/Signin/indivindex"
+import CompanySignin from "./Container/Signin/companyindex"
+
+
 import Signup from "./Container/Signup"
 import Contactus from "./Container/Contactus"
 import BlogIndex from "./Container/Blog/BlogIndex"
@@ -58,14 +63,18 @@ function App() {
       <Router>
 
         <Switch>
-          <Route path='/' exact component={() => <Home mode={mode} Togglemode={Togglemode} />} />
+          <Route exact path='/' exact component={() => <Home mode={mode} Togglemode={Togglemode} />} />
           {/* only this component needs to be exact */}
 
-          <Route path='/aboutus' component={() => <Aboutus mode={mode} Togglemode={Togglemode} />} />
-          <Route path='/signin' component={() => <Signin mode={mode} Togglemode={Togglemode} />} />
-          <Route path='/signup' component={() => <Signup mode={mode} Togglemode={Togglemode} />} />
-          <Route path='/contactus' component={() => <Contactus mode={mode} Togglemode={Togglemode} />} />
-          <Route path='/blogs' exact component={() => <BlogIndex mode={mode} Togglemode={Togglemode} />} />
+          <Route exact path='/aboutus' component={() => <Aboutus mode={mode} Togglemode={Togglemode} />} />
+
+          <Route exact path='/signin' component={() => <Signinoption mode={mode} Togglemode={Togglemode} />} />
+          <Route exact path='/indiv/signin' component={() => <Signin mode={mode} Togglemode={Togglemode} />} />
+          <Route exact path='/company/signin' component={() => <CompanySignin mode={mode} Togglemode={Togglemode} />} />
+
+          <Route exact path='/signup' component={() => <Signup mode={mode} Togglemode={Togglemode} />} />
+          <Route exact path='/contactus' component={() => <Contactus mode={mode} Togglemode={Togglemode} />} />
+          <Route exact path='/blogs' exact component={() => <BlogIndex mode={mode} Togglemode={Togglemode} />} />
           <Route path='/blogs/:id' exact component={() => <Blogindiv mode={mode} Togglemode={Togglemode} />} />
           
 

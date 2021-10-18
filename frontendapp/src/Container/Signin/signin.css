@@ -1,0 +1,10 @@
+.choosebutton{
+    text-decoration: none;
+    padding : 3px;
+    font-size: 30px;
+    color: whitesmoke
+}
+
+.choosebutton:hover{
+    color:#2196f3
+}
