@@ -122,7 +122,7 @@ export default function Header(props) {
                                 
                                 <NavDropdown  id="basic-nav-dropdown"> 
                                     <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">View NGOs</NavDropdown.Item>
+                                    <NavDropdown.Item href="/company/viewcompany/bydistance">View NGOs</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.3">Settings</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href="#action/3.4" ><Link to="#" role="button" onClick={onclicksignout} > Logout</Link> </NavDropdown.Item>

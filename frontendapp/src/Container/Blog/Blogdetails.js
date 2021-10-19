@@ -44,7 +44,7 @@ export default function Blogdetails(props) {
                         {recentblogs.map((element) => {
 
                             return <div className="col " style={{ display:"flex", justifyContent :"center", margin:"0px", padding:"0px"}} key={element._id}>
-                                <Blogcard name ={element.name} linktourl={"http://localhost:3000/blogs/"+element._id} title={element.title} desc = {element.description.slice(0,100)+"..."} baseimgurl = {element.blogPictures[0].img} mode={props.mode} Togglemode={props.Togglemode}></Blogcard>
+                                <Blogcard name ={element.name} linktourl={"http://localhost:3000/blogs/"+element._id} title={element.title} desc = {element.about} baseimgurl = {element.blogPictures[0].img} mode={props.mode} Togglemode={props.Togglemode}></Blogcard>
                             </div>
                             
 

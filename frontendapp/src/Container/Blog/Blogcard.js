@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card,Button } from 'react-bootstrap'
 import "./blogcard.css"
+import parse from 'html-react-parser'
 
 export default function Blogcard(props) {
     return (
@@ -11,7 +12,7 @@ export default function Blogcard(props) {
                 <Card.Title>{props.title}</Card.Title>
                 <h6>By {props.name}</h6>
                 <Card.Text>
-                    {props.desc}
+                    {parse(props.desc)}
                 </Card.Text>
                 <Button variant="dark" href={props.linktourl}>Read more...</Button>
             </Card.Body>

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import Layout from '../../Components/Layout'
 import axios from "axios"
 import Spinner from '../../Components/Spinner/Spinner'
-
+import parse from 'html-react-parser'
 import { Carousel } from 'react-bootstrap'
 
 export default function Blogindiv(props) {
@@ -109,7 +109,9 @@ export default function Blogindiv(props) {
                                 <br />
                                 <br />
                                 <p style={{ fontSize: "20px" }}>
-                                    <span style={{ fontSize: "60px", color: "#4a65ed", fontFamily: "cursive" }}>{blogobj.description.slice(0, 1)}</span>{blogobj.description.slice(1)}
+                                    {/* <span style={{ fontSize: "60px", color: "#4a65ed", fontFamily: "cursive" }}>{parse(blogobj.description).slice(0, 1)}</span>{parse(blogobj.description).slice(1)} */}
+                                    {parse(blogobj.description)}
+                                    {/* <div dangerouslySetInnerHTML={{ __html: blogobj.description }} /> */}
                                 </p>
 
 
