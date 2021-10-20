@@ -1,8 +1,73 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import "./footer.css"
+import axios from 'axios' 
+
+export default function Footer(props) {
+
+    const [email, setemail] = useState("")
 
 
-export default function footer(props) {
+    const onChange = (e)=>{
+        setemail(e.target.value)
+    }
+
+
+    const submitemail = async(email)=>{
+        
+        const response = await fetch("http://localhost:2000/api/addtonewsletter",{
+
+            method :"POST",
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body : JSON.stringify({email})
+
+        })
+
+        const token = await response.json();
+        if(token.success == false){
+            alert(token.error)
+        }
+        else{
+            setemail("")
+        }
+
+       
+    }
+    const onsubmithandler=(e)=>{
+        e.preventDefault();
+        submitemail(email)
+
+    }
+
+    const [locator, setlocator] = useState({})
+
+
+    useEffect(()=>{
+        var options = {
+            method: 'GET',
+            url: `http://localhost:2000/api/getweather`,
+           
+          };
+    
+          try {
+            axios.request(options).then(function (response) {
+                setlocator(response.data)
+                console.log(locator);
+
+            }).catch(function (error) {
+                console.error(error);
+                
+            });
+            
+              
+          } catch (error) {
+              console.log(error);
+
+              
+          }
+    },[])
+
     return (
         <div>
 
@@ -15,10 +80,10 @@ export default function footer(props) {
                             <div class="col-lg-3 col-md-6">
                                 <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style={{ visibility: "visible", animationDelay: "0.2s", animationName: "fadeInLeft" }}>
                                     <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-                                    <p>Don’t miss any updates of our new templates and extensions.!</p>
-                                    <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
-                                        <input type="text" name="EMAIL" class="form-control memail" placeholder="Email" />
-                                        <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+                                    <p>Don’t miss any updates of our new blogs and news!</p>
+                                    <form class="f_subscribe_two mailchimp" onSubmit={onsubmithandler} >
+                                        <input type="text" name="email" class="form-control memail" value = {email} onChange={onChange} placeholder="Email" />
+                                        <button class="btn btn_get btn_get_two" type="submit" >Subscribe</button>
                                         <p class="mchimp-errmessage" style={{display:"none"}}></p>
                                         <p class="mchimp-sucmessage" style={{display:"none"}}></p>
                                     </form>
@@ -54,11 +119,35 @@ export default function footer(props) {
                                 <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style={{ visibility: "visible", animationDelay: "0.8s", animationName: "fadeInLeft" }}>
                                     <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
                                     <div class="f_social_icon">
-                                        <a href="#" class="fab fa-facebook"></a>
-                                        <a href="#" class="fab fa-twitter"></a>
-                                        <a href="#" class="fab fa-linkedin"></a>
-                                        <a href="#" class="fab fa-pinterest"></a>
+                                        <a href="#" class="fa fa-facebook"></a>
+                                        <a href="#" class="fa fa-twitter"></a>
+                                        <a href="#" class="fa fa-linkedin"></a>
+                                        <a href="#" class="fa fa-pinterest"></a>
                                     </div>
+                                </div>
+                                <div className="row my-3">
+                                <h6 style={{color:"#538ae5"}}> {locator.location ? locator.location.name+","+locator.location.country: ""}</h6>
+                                    <div className="col-md-2 mx-3">
+                                        <img src={locator.current ? "http:"+locator.current.condition.icon : ""} alt=""/> 
+                                    </div>
+                                    <div className="col-md-2 mx-3" style={{paddingTop:"20px"}}>
+                                    
+                                    <p > <center>{locator.current ? locator.current.condition.text: ""}</center></p>
+                                    
+                                    </div>
+
+                                <h6> {locator.current ? "Temp: "+locator.current.temp_c + "'C": ""} </h6>
+                                <h6> {locator.current ? "Humidity: "+locator.current.humidity + " %": ""} </h6>
+                                <h6> {locator.current ? "Wind: "+locator.current.wind_kph + " Km/s": ""} </h6>
+                                <h6> {locator.current ? "UV: "+locator.current.uv + " %": ""} </h6>
+
+                                    <div className="container">
+                                        <h6>{locator.current ? "Air Pollution(PM 2.5): "+Math.trunc(locator.current.air_quality.pm2_5)+" ": ""} <i class="fa fa-heart" aria-hidden="true"></i> </h6>
+                                        
+                                    </div>
+                                    
+                                    
+                                        
                                 </div>
                             </div>
                         </div>

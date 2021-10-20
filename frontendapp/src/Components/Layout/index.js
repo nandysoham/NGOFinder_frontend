@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../Header'
-import Footer from '../Footer/footer'
+import Footer from '../Footer/Footer'
 
 
 
