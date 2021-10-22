@@ -49,10 +49,10 @@ export default function Aboutus(props) {
             linkedin:"",
         },
         {
-            image:"/img/members/soham.jpeg",
-            name :"",
+            image:"/img/members/sarthak.jpeg",
+            name :"Sarthak Girotra",
             role: "Full Stack Developer",
-            github:"",
+            github:"https://github.com/sarg30",
             facebook:"",
             linkedin:"",
         },
