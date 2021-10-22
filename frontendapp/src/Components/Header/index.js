@@ -84,9 +84,9 @@ export default function Header(props) {
 
     return (
         // <div className = "container">
-        <Navbar bg={dark ? "dark" : "light"} variant={dark ? "dark" : "light"} expand="lg">
+        <Navbar bg={dark ? "dark" : "light"} variant={dark ? "dark" : "light"} expand="lg" style={{width:"100vw"}}>
             {/* <Link to="/" className="navbar-brand">  NGO Helper</Link> */}
-            <Container>
+            <Container >
                 <Navbar.Brand href="/">NGO Helper</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

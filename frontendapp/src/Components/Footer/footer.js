@@ -73,7 +73,7 @@ export default function Footer(props) {
 
 
 
-            <footer class="new_footer_area bg_color " style={{marginTop:"5px"}} >
+            <footer class="new_footer_area bg_color " style={{marginTop:"5px", width:"100vw"}} >
                 <div class="new_footer_top" style={{backgroundColor: props.mode ? "rgb(40 30 30)" : "white"}}>
                     <div class="container">
                         <div class="row">
@@ -132,17 +132,19 @@ export default function Footer(props) {
                                     </div>
                                     <div className="col-md-2 mx-3" style={{paddingTop:"20px"}}>
                                     
-                                    <p > <center>{locator.current ? locator.current.condition.text: ""}</center></p>
+                                    <h6 > <center>{locator.current ? locator.current.condition.text: ""}</center></h6>
                                     
                                     </div>
 
-                                <h6> {locator.current ? "Temp: "+locator.current.temp_c + "'C": ""} </h6>
+                                <h6> {locator.current ? "Temp: "+locator.current.temp_c + " °C": ""} </h6>
                                 <h6> {locator.current ? "Humidity: "+locator.current.humidity + " %": ""} </h6>
-                                <h6> {locator.current ? "Wind: "+locator.current.wind_kph + " Km/s": ""} </h6>
+                                <h6> {locator.current ? "Wind: "+locator.current.wind_kph + " Km/h": ""} </h6>
                                 <h6> {locator.current ? "UV: "+locator.current.uv + " %": ""} </h6>
 
                                     <div className="container">
-                                        <h6>{locator.current ? "Air Pollution(PM 2.5): "+Math.trunc(locator.current.air_quality.pm2_5)+" ": ""} <i class="fa fa-heart" aria-hidden="true"></i> </h6>
+                                        <h6>{locator.current ? "Air Pollution(PM 2.5): "+Math.trunc(locator.current.air_quality.pm2_5)+" ": ""} <i class="fa fa-heart" aria-hidden="true" style={{
+                                            color: locator.current ? (locator.current.air_quality.pm2_5 > 150? "red" : (locator.current.air_quality.pm2_5 <= 150 && locator.current.air_quality.pm2_5 > 100 ? "orange" : (locator.current.air_quality.pm2_5 <= 100 && locator.current.air_quality.pm2_5 > 50 ? "yellowgreen" : "green"))): "white" 
+                                            }}></i> </h6>
                                         
                                     </div>
                                     
