@@ -103,7 +103,7 @@ export default function Blogindiv(props) {
                                 <h1 className="text-center my-2 " style={{ fontFamily: "Dancing Script" }}>{blogobj.title}</h1>
                                 <br />
                                 <h6 className="text-center">By {blogobj.name}</h6>
-                                <br />
+                                {/* <br /> */}
 
                                 <h6 style={{ display: "flex", justifyContent: "right" }}>Updated at {updatetime} </h6>
                                 <br />
