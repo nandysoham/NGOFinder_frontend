@@ -47,8 +47,10 @@ const CreateBlog = () => {
         // bringprofile()
         console.log("profile --> " , profile);
         console.log("hello you just submitted your form");
+        console.log(profile.profilePicture[0]);
         let formData = new FormData();
         formData.append('name', profile.name);
+        formData.append('authorPicture', profile.profilePicture[0].img)
         formData.append('title', title);
         formData.append('about', about);
         formData.append('description', description);

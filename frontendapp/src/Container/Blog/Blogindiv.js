@@ -102,10 +102,13 @@ export default function Blogindiv(props) {
                                 </Carousel>
                                 <h1 className="text-center my-2 " style={{ fontFamily: "Dancing Script" }}>{blogobj.title}</h1>
                                 <br />
-                                <h6 className="text-center">By {blogobj.name}</h6>
+                                <h6 className=""  >
+                                    <img style={{height:"40px", width:"40px" , borderRadius:"50%", transform:"1.5x"}} src = { blogobj.authorPicture ? "http://localhost:2000/staticindiv/"+ blogobj.authorPicture : "http://localhost:2000/staticindiv/personplaceholder.png"}></img>
+                                
+                                {"    "+ blogobj.name}</h6>
                                 {/* <br /> */}
 
-                                <h6 style={{ display: "flex", justifyContent: "right" }}>Updated at {updatetime} </h6>
+                                <h6 style={{ display: "flex", justifyContent: "right" }}>Updated on {updatetime} </h6>
                                 <br />
                                 <br />
                                 <p style={{ fontSize: "20px" }}>
