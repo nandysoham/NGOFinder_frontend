@@ -2,6 +2,7 @@ import React, { useState, useEffect, PureComponent } from 'react'
 // comment section imports
 import { CommentSection } from 'react-comments-section'
 import 'react-comments-section/dist/index.css'
+
 import data from "./data.json"
 import axios from "axios"
 
@@ -146,8 +147,8 @@ export const Blogcomment = (props) => {
 
                 })
             }
-            console.log("valid aray!!!")
-            console.log(validarray);
+            // console.log("valid aray!!!")
+            // console.log(validarray);
             setprevcomment(validarray)
 
         }).catch(function (error) {
