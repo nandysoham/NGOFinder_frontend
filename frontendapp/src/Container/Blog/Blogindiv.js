@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react'
+
 import { useParams } from 'react-router-dom'
 import Layout from '../../Components/Layout'
 import axios from "axios"
 import Spinner from '../../Components/Spinner/Spinner'
 import parse from 'html-react-parser'
 import { Carousel } from 'react-bootstrap'
+import { Blogcomment } from './Blogcomment'
+
+
+
+
 
 export default function Blogindiv(props) {
 
     if (props.mode) {
         document.body.style.backgroundColor = "#2c2c2c"
     }
+
+
+    
+
 
     // this is using the useParams hook
     const [updatetime, setupdatetime] = useState("")
@@ -22,6 +32,7 @@ export default function Blogindiv(props) {
         "title": "",
         "description": "",
         "slug": "",
+        "userid":"",
         'blogPictures': [],
         "createdAt": "",
         "updatedAt": ""
@@ -58,6 +69,7 @@ export default function Blogindiv(props) {
                 {loader ?
                     <Spinner> </Spinner>
                     :
+                    <>
                     <div className="row">
                         <div className="col-1 left-sidebar-item" style={{
                             
@@ -125,6 +137,14 @@ export default function Blogindiv(props) {
 
                         </div>
                     </div>
+                    <div className="container commentdiv" style={{width:"75%",paddingTop:"30px" }}>
+                        {/* hey guys this is the comment section */}
+                        <Blogcomment blog_id={id}/>
+
+
+                    </div>
+
+                    </>
 
 
                 }

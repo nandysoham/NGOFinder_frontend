@@ -58,7 +58,7 @@ export default function Header(props) {
 
 
            var options = {
-            method: 'GET',
+            method: 'POST',
             url: 'http://localhost:2000/api/indiv/getindivdetails',
             headers : {
                 'Content-Type': 'application/json',

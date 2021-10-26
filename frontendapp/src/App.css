@@ -55,4 +55,73 @@
 }
 
 
+/* ============================= CKEDITOR SECTION ======================================== */
 
+
+
+
+/* ck editor system */
+/*
+ * Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+ */
+ :root {
+	--ck-image-style-spacing: 1.5em;
+}
+
+
+	.image-style-side,
+	.image-style-align-left,
+	.image-style-align-center,
+	.image-style-align-right {
+		max-width: 50%;
+	}
+
+	.image-style-side {
+		float: right;
+		margin-left: var(--ck-image-style-spacing);
+        
+        
+	}
+
+	.image-style-align-left {
+		float: left;
+		margin-right: var(--ck-image-style-spacing);
+    
+	}
+
+    
+
+	.image-style-align-center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	
+
+    .image-style-align-right img{
+        max-width: 45px;
+    }
+
+
+    /*  ========================== my custom image styles ========================== */
+
+    .image-style-align-left img{
+        max-width: 45px;
+    }
+
+    .image-style-align-right {
+		float: right;
+		margin-left: var(--ck-image-style-spacing);
+	}
+
+    .image-style-side img{
+        max-width: 40vw;
+    
+    }
+
+    .image-style-side figcaption{
+        font-size: smaller;
+        text-align: center;
+
+    }
