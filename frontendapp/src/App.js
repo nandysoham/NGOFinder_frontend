@@ -28,6 +28,8 @@ import CompanyState from "./Context/Company/CompanyState";
 import ErrorPage from "./Container/Error/ErrorPage";
 import CreateBlog from "./Container/Blog/CreateBlog";
 
+import IndivDash from "./Container/IndivDashboard/IndivDash"
+
 
 function App() {
 
@@ -85,6 +87,9 @@ function App() {
 
 
           <Route exact path='/company/viewcompany/bydistance' component={() => <ViewCompany mode={mode} Togglemode={Togglemode} />} />
+
+
+          <Route exact path='/indiv/viewdashboard' component={() => <IndivDash mode={mode} Togglemode={Togglemode} />} />
           <Route component={()=> <ErrorPage/>}/>
 
           {/* earlier */}

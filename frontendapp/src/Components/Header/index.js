@@ -110,6 +110,29 @@ export default function Header(props) {
                         {/* this whole part needs to be activated with the same classes as in bootsrap so that the design remains the same */}
                         {localStorage.getItem("indivtoken") || localStorage.getItem("companytoken") ?
                            <>  
+                                {localStorage.getItem("indivtoken") ? 
+                                <>
+                                <h6 style={{padding:"7px"}}> Hi {profile.name} ! </h6>
+                                <div className="profile-image" style={{overflow:"hidden"}}>
+                                    
+                                    <img src={profile.profilePicture ? "http://localhost:2000/staticindiv/"+profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"}  className="profile-image img-circle" style={{
+                                    transform:"scale(1.5)"
+                                }}/>
+
+                                </div>
+                                 
+                                
+                                <NavDropdown  id="basic-nav-dropdown"> 
+                                    <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                                    <NavDropdown.Item href="/company/viewcompany/bydistance">View NGOs</NavDropdown.Item>
+                                    <NavDropdown.Item href="/indiv/viewdashboard">Dashboard</NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#action/3.4" ><Link to="#" role="button" onClick={onclicksignout} > Logout</Link> </NavDropdown.Item>
+                                </NavDropdown>
+                                
+                                </>
+                                : 
+                                <>
                                 <h6 style={{padding:"7px"}}> Hi {profile.name} ! </h6>
                                 <div className="profile-image" style={{overflow:"hidden"}}>
                                     
@@ -127,6 +150,10 @@ export default function Header(props) {
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item href="#action/3.4" ><Link to="#" role="button" onClick={onclicksignout} > Logout</Link> </NavDropdown.Item>
                                 </NavDropdown>
+                                
+                                </>   
+                            }
+                                
                                 {/* <li className="nav-item">
                                     <NavLink to="/" className="nav-link" onClick={onclicksignout}> Logout </NavLink>
 
