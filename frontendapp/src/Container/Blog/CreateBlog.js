@@ -17,7 +17,7 @@ const CreateBlog = () => {
 
     const [title, settitle] = useState('')
 
-    const [profile, setprofile] = useState({})
+    const [profile, setprofile] = useState({"name" : "soham"})
 
     const onChange = (e) => {
         settitle(e.target.value)
@@ -27,7 +27,7 @@ const CreateBlog = () => {
         if (localStorage.getItem("indivtoken")) {
             
             var options = {
-                method: 'GET',
+                method: 'POST',
                 url: 'http://localhost:2000/api/indiv/getindivdetails',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,7 +36,12 @@ const CreateBlog = () => {
             };
 
             const response = await axios.request(options)
-            setprofile(response.data.userindiv)
+            // console.log("fetching the user data");
+            console.log(response.data.userindiv)
+            let prof = JSON.parse(JSON.stringify(response.data.userindiv))
+            console.log("prof ==> " + prof)
+            setprofile(prof)
+            console.log("at the end of the function "+profile)
         }
     }
 
@@ -44,7 +49,9 @@ const CreateBlog = () => {
 
     const submitblog = async (title, description, about,pics) => {
 
-        // bringprofile()
+        const wait = await bringprofile()
+        console.log(wait)
+        console.log("before viewing the profile details from the submit blog option")
         console.log("profile --> " , profile);
         console.log("hello you just submitted your form");
         console.log(profile.profilePicture[0]);

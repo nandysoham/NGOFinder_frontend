@@ -35,13 +35,18 @@ const IndivDash = (props) => {
 
     }, [])
 
+    const togglesidebar =()=>{
+        document.getElementById("websidebar").style.width = "0";
+        document.getElementById("mainbody").style.marginLeft = "0";
+    }
+
 return (
 
 
     <div>
         <div className="container">
             {/* col-md-3 */}
-            <div className="" style={{
+            <div className="" id="websidebar" style={{
                 backgroundColor: "#06213c",
                 // opacity: "70%",
                 height: "100%",
@@ -89,7 +94,8 @@ return (
                     <Link class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</Link>
 
 
-                    <Link to="/" class="nav-link" id="v-pills-back-tab" >Back</Link>
+                    {/* <Link to="/" class="nav-link" id="v-pills-back-tab" >Back</Link> */}
+                    <button class="nav-link" id="v-pills-back-tab" onClick={togglesidebar}>hide</button>
 
 
                     
@@ -101,7 +107,8 @@ return (
 
             </div>
             {/* col-md-10 */}
-            <div className="container" style={{
+            <Layout mode={props.mode} Togglemode={props.Togglemode}>
+            <div className="container" id="mainbody" style={{
                 
                 height: "100%",
                 minHeight: "100vh",
@@ -114,6 +121,7 @@ return (
                 // position: 'relative'
 
             }}>
+                
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         <Showprofile profile={profile}/>
@@ -127,6 +135,9 @@ return (
 
 
             </div>
+
+            </Layout>
+            
         </div>
     </div>
 
