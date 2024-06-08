@@ -1,5 +1,5 @@
 
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
@@ -44,47 +44,73 @@ export default function Header(props) {
         }
     }
 
-    const fetchindivuser = ()=>{
+    const fetchindivuser = () => {
 
-        
+
 
 
     }
 
-    useEffect(()=>{
-        if(localStorage.getItem("indivtoken")){
-           const indivdata =  fetchindivuser()
-           console.log(indivdata)
+    useEffect(() => {
+        if (localStorage.getItem("indivtoken")) {
+            const indivdata = fetchindivuser()
+            console.log(indivdata)
 
 
-           var options = {
-            method: 'POST',
-            url: 'http://localhost:2000/api/indiv/getindivdetails',
-            headers : {
-                'Content-Type': 'application/json',
-                'auth-token' : localStorage.getItem("indivtoken")
-            }
-          };
+            var options = {
+                method: 'POST',
+                url: 'http://localhost:2000/api/indiv/getindivdetails',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem("indivtoken")
+                }
+            };
 
-          axios.request(options).then(function (response) {
-            // console.log(response.data);
-            setprofile(response.data.userindiv)
-            // profilepicture
-            // profile.profilePicture[0].img
-            console.log(profile.profilePicture);
-            
-        }).catch(function (error) {
-            console.error(error);
+            axios.request(options).then(function (response) {
+                // console.log(response.data);
+                setprofile(response.data.userindiv)
+                // profilepicture
+                // profile.profilePicture[0].img
+                console.log(profile.profilePicture);
 
-        });
-                        
+            }).catch(function (error) {
+                console.error(error);
+
+            });
+
         }
 
-    },[])
+
+        if (localStorage.getItem("companytoken")) {
+
+            var options = {
+                method: 'POST',
+                url: 'http://localhost:2000/api/company/getindivdetails',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem("companytoken")
+                }
+            };
+
+            axios.request(options).then(function (response) {
+                // console.log(response.data);
+                setprofile(response.data.userindiv)
+                console.log(profile)
+                // profilepicture
+                // profile.profilePicture[0].img
+                // console.log(profile.profilePicture);
+
+            }).catch(function (error) {
+                console.error(error);
+
+            });
+        }
+
+    }, [])
 
     return (
         // <div className = "container">
-        <Navbar bg={dark ? "dark" : "light"} variant={dark ? "dark" : "light"} expand="lg" style={{width:"100vw"}}>
+        <Navbar bg={dark ? "dark" : "light"} variant={dark ? "dark" : "light"} expand="lg" style={{ width: "100vw" }}>
             {/* <Link to="/" className="navbar-brand">  NGO Helper</Link> */}
             <Container >
                 <Navbar.Brand href="/">NGO Helper</Navbar.Brand>
@@ -106,58 +132,56 @@ export default function Header(props) {
 
                     <Nav >
                         {/* <Nav.Link href="#deets">Signin</Nav.Link> */}
-{/* {"http://localhost:2000/staticimdiv/"+profile.profilePicture[0].img} */}
+                        {/* {"http://localhost:2000/staticimdiv/"+profile.profilePicture[0].img} */}
                         {/* this whole part needs to be activated with the same classes as in bootsrap so that the design remains the same */}
                         {localStorage.getItem("indivtoken") || localStorage.getItem("companytoken") ?
-                           <>  
-                                {localStorage.getItem("indivtoken") ? 
-                                <>
-                                <h6 style={{padding:"7px"}}> Hi {profile.name} ! </h6>
-                                <div className="profile-image" style={{overflow:"hidden"}}>
-                                    
-                                    <img src={profile.profilePicture ? "http://localhost:2000/staticindiv/"+profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"}  className="profile-image img-circle" style={{
-                                    transform:"scale(1.5)"
-                                }}/>
+                            <>
+                                {localStorage.getItem("indivtoken") ?
+                                    <>
+                                        <h6 style={{ padding: "7px", color: (dark ? "white" : "black") }}> Hi {profile.name} ! </h6>
+                                        <div className="profile-image" style={{ overflow: "hidden" }}>
 
-                                </div>
-                                 
-                                
-                                <NavDropdown  id="basic-nav-dropdown"> 
-                                    <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                                    <NavDropdown.Item href="/company/viewcompany/bydistance">View NGOs</NavDropdown.Item>
-                                    <NavDropdown.Item href="/indiv/viewdashboard">Dashboard</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4" ><Link to="#" role="button" onClick={onclicksignout} > Logout</Link> </NavDropdown.Item>
-                                </NavDropdown>
-                                
-                                </>
-                                : 
-                                <>
-                                <h6 style={{padding:"7px"}}> Hi {profile.name} ! </h6>
-                                <div className="profile-image" style={{overflow:"hidden"}}>
-                                    
-                                    <img src={profile.profilePicture ? "http://localhost:2000/staticindiv/"+profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"}  className="profile-image img-circle" style={{
-                                    transform:"scale(1.5)"
-                                }}/>
+                                            <img src={profile.profilePicture ? profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"} className="profile-image img-circle" style={{
+                                                transform: "scale(1.5)"
+                                            }} />
 
-                                </div>
-                                 
-                                
-                                <NavDropdown  id="basic-nav-dropdown"> 
-                                    <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                                    <NavDropdown.Item href="/company/viewcompany/bydistance">View NGOs</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Settings</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4" ><Link to="#" role="button" onClick={onclicksignout} > Logout</Link> </NavDropdown.Item>
-                                </NavDropdown>
-                                
-                                </>   
-                            }
-                                
-                                {/* <li className="nav-item">
-                                    <NavLink to="/" className="nav-link" onClick={onclicksignout}> Logout </NavLink>
+                                        </div>
 
-                                </li> */}
+
+                                        <NavDropdown id="basic-nav-dropdown">
+                                            <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                                            <NavDropdown.Item href="/company/viewcompany/bydistance">View NGOs</NavDropdown.Item>
+                                            <NavDropdown.Item href="/indiv/viewdashboard">Dashboard</NavDropdown.Item>
+                                            <NavDropdown.Divider />
+                                            <NavDropdown.Item href="#action/3.4" ><Link to="#" role="button" onClick={onclicksignout} > Logout</Link> </NavDropdown.Item>
+                                        </NavDropdown>
+
+                                    </>
+                                    :
+
+                                    // for Company users
+
+                                    <>
+                                        <h6 style={{ padding: "7px" }}> Hi {profile.companyname} ! </h6>
+                                        <div className="profile-image" style={{ overflow: "hidden" }}>
+
+                                            <img src={profile.companyPictures ? profile.companyPictures[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"} className="profile-image img-circle" style={{
+                                                transform: "scale(1.5)"
+                                            }} />
+
+                                        </div>
+
+
+                                        <NavDropdown id="basic-nav-dropdown">
+                                            <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                                            <NavDropdown.Item href="/company/viewcompany/bydistance">View NGOs</NavDropdown.Item>
+                                            <NavDropdown.Item href="/company/viewdashboard">Dashboard</NavDropdown.Item>
+                                            <NavDropdown.Divider />
+                                            <NavDropdown.Item href="#action/3.4" ><Link to="#" role="button" onClick={onclicksignout} > Logout</Link> </NavDropdown.Item>
+                                        </NavDropdown>
+
+                                    </>
+                                }
 
                             </>
 
@@ -176,19 +200,7 @@ export default function Header(props) {
                         }
 
 
-                        <li className="nav-item">
-                            <ToggleMode dark={props.dark} Togglemode={props.Togglemode}></ToggleMode>
-                            {/* <>
-                                <label className="switch">
-                                    <input
-                                        type="checkbox"
-                                        // checked ={dark}
-                                        onChange={props.Togglemode}
-                                    />
-                                    <span className="slider round"></span>
-                                </label>
-                            </> */}
-                        </li>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>

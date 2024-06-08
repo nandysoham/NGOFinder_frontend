@@ -20,7 +20,7 @@ export default function ViewCompany(props){
             {companies.map((indivcompany)=>{
                 return <div className="container my-3" style={{display:"flex", justifyContent:"center"}}>
                     <Companycard className="my-3" 
-                    
+                        key = {indivcompany._id}
                         companyname = {indivcompany.companyname}
                         companydetails = {indivcompany.companydetails ? indivcompany.companydetails.slice(0,200): `
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
@@ -33,6 +33,7 @@ export default function ViewCompany(props){
                         email = {indivcompany.email}
                         city = {indivcompany.city} 
                         country = {indivcompany.country}
+                        id= {indivcompany._id}
                         />
                 </div>
             })}

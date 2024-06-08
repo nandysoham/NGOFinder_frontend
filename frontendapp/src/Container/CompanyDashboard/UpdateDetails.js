@@ -1,39 +1,36 @@
-import React, { useState } from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from "axios"
 import Layout from '../../Components/Layout'
 import { Row, Col, Form, Button } from 'react-bootstrap'
-import { useHistory } from 'react-router'
 
-export default function Signin(props) {
-    let history = useHistory()
-    const initialState = localStorage.getItem("companyCached") ? JSON.parse(localStorage.getItem("companyCached")) :
-        {
-            companyname: "",
-            regno: "",
-            parentcompany: "",
-            website: "",
-            about: "",
-            email: "",
-            password: "",
-            established: "",
-            contactperson: "",
-            phone: "",
-            phone2: "",
-            addressline1: "",
-            addressline2: "",
-            city: "",
-            state: "",
-            country: "",
-            pincode: "",
-            lattitude: "",
-            longitude: ""
-        }
+const UpdateDetails = (props) => {
+    const [company, setCompany] = useState({});
+    useEffect(()=>{
+        // get the initial detials of the company
+        var options = {
+            method: 'POST',
+            url: 'http://localhost:2000/api/company/getindivdetails',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem("companytoken")
+            }
+        };
 
-    const [company, setCompany] = useState(initialState);
+        axios.request(options).then(function (response) {
+                setCompany(response.data.userindiv)
+                console.log(company)
+            }).catch(function (error) {
+                console.error(error);
+
+            });
+    }, [])
+
 
     const handleChange = (event) => {
         setCompany({ ...company, [event.target.name]: event.target.value });
         localStorage.setItem("companyCached", JSON.stringify(company))
     };
+
 
     const submitDetails = async (companyPictures) => {
         let formData = new FormData();
@@ -47,18 +44,19 @@ export default function Signin(props) {
             }
         }
 
-        const response = await fetch("http://localhost:2000/api/company/createuser", {
+        const response = await fetch("http://localhost:2000/api/company/updateuserdetails", {
 
-            method: "POST",
+            method: "PUT",
             headers: {
+                "auth-token" : localStorage.getItem("companytoken")
             },
             body: formData
 
         })
 
-        const token = await response.json();
+        const resp = await response.json();
 
-        console.log(token);
+        console.log(resp);
     }
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -67,13 +65,14 @@ export default function Signin(props) {
         console.log(companyPictures);
         submitDetails(companyPictures);
         alert("Submitted successfully");
-        history.push("/signin")
+        
 
     }
 
     return (
-        <div>
-            <Layout mode={props.mode} Togglemode={props.Togglemode}>
+        <div className="component" >
+            <h1>Update your details here!</h1>
+            {/* <Layout mode={props.mode} Togglemode={props.Togglemode}>
                 <div style={{
                     backgroundImage: props.mode ? "url(/img/signinupblack.jpg)" : "url(/img/signinup.jpg)",
                     backgroundRepeat: 'no-repeat',
@@ -82,10 +81,10 @@ export default function Signin(props) {
                     width: '100%',
                     height: '100%',
                     minHeight: "100vh"
-                }}>
+                }}> */}
 
                     <div className="container detailedform">
-                        <Form className="onlyform" onSubmit={onSubmitHandler}>
+                        <Form className="onlyform" onSubmit={onSubmitHandler} style={{color : "black"}}>
                             <Row className="mb-3">
                                 <Form.Group as={Col} >
                                     <Form.Label>Name of Organisation</Form.Label>
@@ -128,24 +127,6 @@ export default function Signin(props) {
                                 </Form.Group>
                             </Row>
 
-
-                            <Row className="mb-3">
-
-                                <Form.Group as={Col} controlId="password">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Enter password" name="password" value={company.password} onChange={handleChange} />
-                                </Form.Group>
-
-                            </Row>
-
-                            <Row className="mb-3">
-
-                                <Form.Group as={Col} controlId="password">
-                                    <Form.Label>Confirm Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Reconfirm password" />
-                                </Form.Group>
-
-                            </Row>
 
                             <Form.Group className="mb-3" controlId="established">
                                 <Form.Label>Established</Form.Label>
@@ -192,24 +173,24 @@ export default function Signin(props) {
 
                                 <Form.Group as={Col} controlId="country">
                                     <Form.Label>Country</Form.Label>
-                                    <Form.Control type="Text" name="country" value={company.country} onChange={handleChange} />
+                                    <Form.Control type="Text" name="country" value={company.country} onChange={handleChange} />/>
                                 </Form.Group>
 
                             </Row>
                             <Row className="mb-3">
                                 <Form.Group as={Col} controlId="zip">
                                     <Form.Label>Zip</Form.Label>
-                                    <Form.Control type="Text" name="pincode" value={company.pincode} onChange={handleChange} />
+                                    <Form.Control type="Text" name="pincode" value={company.pincode} onChange={handleChange} />/>
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="lattitude">
                                     <Form.Label>Lattitude</Form.Label>
-                                    <Form.Control type="Text" name="lattitude" value={company.lattitude} onChange={handleChange} />
+                                    <Form.Control type="Text" name="lattitude" value={company.lattitude} onChange={handleChange} />/>
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="longitude">
                                     <Form.Label>Longitude</Form.Label>
-                                    <Form.Control type="Text" name="longitude" value={company.longitude} onChange={handleChange} />
+                                    <Form.Control type="Text" name="longitude" value={company.longitude} onChange={handleChange} />/>
                                 </Form.Group>
                             </Row>
 
@@ -225,8 +206,12 @@ export default function Signin(props) {
                         </Form>
                     </div>
 
-                </div>
-            </Layout>
+                {/* </div> */}
+            {/* </Layout> */}
+        
+
         </div>
     )
 }
+
+export default UpdateDetails

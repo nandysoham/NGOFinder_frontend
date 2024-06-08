@@ -5,6 +5,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios'
 import parse from 'html-react-parser'
+import TextEditor from '../CKEditor/TextEditor';
 
 
 
@@ -94,6 +95,7 @@ const CreateBlog = () => {
         console.log(text);
         submitblog(title, text,about, blogPictures)
         console.log("you just clicked it")
+        history.push("/blogs");
     }
 
     useEffect(()=>{
@@ -132,9 +134,9 @@ const CreateBlog = () => {
                         <h2 className="text-center">New Blogs here!!!</h2>
                         <form onSubmit={handleClick}>
                             <div className="container" style={{ padding: "20px", display: "flex", justifyContent: 'center' }}>
-                                <div class="form-group" style={{ width: "100vw" }}>
+                                <div className="form-group" style={{ width: "100vw" }}>
                                     <label for="blogtitle" className="my-2">Title</label>
-                                    <input type="text" class="form-control" id="blogtitle" name="blogtitle" value={title} aria-describedby="titleHelp" placeholder="Enter Title" onChange={onChange} />
+                                    <input type="text" className="form-control" id="blogtitle" name="blogtitle" value={title} aria-describedby="titleHelp" placeholder="Enter Title" onChange={onChange} />
 
                                 </div>
                             </div>
@@ -142,13 +144,13 @@ const CreateBlog = () => {
                             <label for="blogtitle" className="my-2">Please enter something about the blog (not more than 200 letters)</label>
                                 <div>
 
-                                    <CKEditor
-                                        editor={ClassicEditor}
-                                        data={about}
-                                        onChange={(event, editor) => {
-                                            const data = editor.getData()
-                                            setabout(data)
-                                        }}
+                                    <TextEditor setVar = {setabout}
+                                        // editor={ClassicEditor}
+                                        // data={about}
+                                        // onChange={(event, editor) => {
+                                        //     const data = editor.getData()
+                                        //     setabout(data)
+                                        // }}
 
                                     />
 
@@ -158,14 +160,14 @@ const CreateBlog = () => {
                             <div className="container">
                                 <label for="blogtitle" className="my-2">Go ahead with your blog</label>
                                 <div>
-
-                                    <CKEditor
-                                        editor={ClassicEditor}
-                                        data={text}
-                                        onChange={(event, editor) => {
-                                            const data = editor.getData()
-                                            settext(data)
-                                        }}
+                                    
+                                    <TextEditor setVar = {settext}
+                                        // editor={ClassicEditor}
+                                        // data={text}
+                                        // onChange={(event, editor) => {
+                                        //     const data = editor.getData()
+                                        //     settext(data)
+                                        // }}
 
                                     />
 
@@ -173,16 +175,16 @@ const CreateBlog = () => {
 
                                 {/* <p>{parse(text)}</p> */}
 
-                                <div class="form-group" >
+                                <div className="form-group" >
                                     <label for="blogpictures" className="my-2">Pictures!!!</label>
-                                    {/* <input type="file" class="form-control" id="blogpictures" name="blogpictures" aria-describedby="pictureHelp" /> */}
+                                    {/* <input type="file" className="form-control" id="blogpictures" name="blogpictures" aria-describedby="pictureHelp" /> */}
                                     <input className="form-control" type='file' multiple='multiple' accept='image/*' name='blogPictures' id='file' />
 
                                 </div>
 
                             </div>
 
-                            <button type="submit" class="btn btn-primary my-4 mx-3">Submit</button>
+                            <button type="submit" className="btn btn-primary my-4 mx-3">Submit</button>
                         </form>
 
                     </div>

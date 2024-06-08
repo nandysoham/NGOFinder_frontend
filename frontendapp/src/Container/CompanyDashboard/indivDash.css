@@ -1,0 +1,21 @@
+.nav-link{
+    color: rgb(196, 177, 177);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 20px;
+
+
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color:#123d7ca3;
+}
+
+
+#v-pills-back-tab {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    left: 15px;
+}

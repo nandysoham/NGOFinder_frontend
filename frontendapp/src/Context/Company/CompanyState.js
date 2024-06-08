@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import CompanyContext from "./CompanyContext"
 import axios from 'axios';
 

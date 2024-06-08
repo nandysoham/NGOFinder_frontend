@@ -23,8 +23,8 @@ const signinoption = (props) => {
                     </div>
 
                     <div className="container detailedform" style={{padding:"100px"}}>
-                        <Link className="choosebutton" to="/indiv/signin"> <i class="fa fa-user" aria-hidden="true"></i>  Individual</Link>
-                        <Link className="choosebutton" to="/company/signin"><i class="fa fa-building-o" aria-hidden="true"></i>  NGO</Link>
+                        <Link className="choosebutton" to={`/indiv/${props.redirect}`}> <i className="fa fa-user" aria-hidden="true"></i>  Individual</Link>
+                        <Link className="choosebutton" to={`/company/${props.redirect}`}><i className="fa fa-building-o" aria-hidden="true"></i>  NGO</Link>
                         
                     </div>
 

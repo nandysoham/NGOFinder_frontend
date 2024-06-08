@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./companycard.css"
 
 
@@ -12,7 +13,7 @@ const Companycard = (props) => {
             }}>
             <div className="row g-0" style={{minHeight:"300px",borderRadius:"10px"}}>
                 <div className="col-md-4" style={{minHeight:"300px",borderRadius:"10pxpx"}}>
-                    <img src={"http://localhost:2000/staticcompany/"+props.companyprimaryimg} className="img-fluid rounded-start" style={{minHeight:"300px",borderRadius:"10pxpx"}} alt="..."/>
+                    <img src={props.companyprimaryimg} className="img-fluid rounded-start" style={{minHeight:"300px",borderRadius:"10pxpx"}} alt="..."/>
                     </div>
                     <div className="col-md-8" style={{minHeight:"300px"}}>
                         <div className="card-body" style={{minHeight:"300px"}}>
@@ -28,10 +29,10 @@ const Companycard = (props) => {
                                     <div className="col-md-6" style={{display:"flex", justifyContent:"right"}}>
                                     {/* <p className="card-text" ><small className="text-muted" >Last updated 3 mins ago</small></p> <br/> */}
                                     <div className="container" style={{display:"flexbox", height:"50px",justifyContent:"right"}}>
-                                        <button type="button" className="btn btn-dark btn-sm">Read More ...</button>
+                                        <Link to={{pathname : `http://localhost:3000/company/indivcompany/${props.id}`}} target="_blank" relative="path" ><button type="button" className="btn btn-dark btn-sm" >Read More ...</button> </Link>
 
                                     </div>
-                                    
+
                                     </div>
                                 </div>
                             

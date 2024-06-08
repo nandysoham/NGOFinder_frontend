@@ -2,9 +2,6 @@ import React,{useState} from 'react'
 import Layout from '../../Components/Layout'
 import {  Form, Button } from 'react-bootstrap'
 
-
-
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 // import { Link } from 'react-router-dom'
 

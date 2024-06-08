@@ -14,9 +14,15 @@ import { Blogcomment } from './Blogcomment'
 
 export default function Blogindiv(props) {
 
-    if (props.mode) {
-        document.body.style.backgroundColor = "#2c2c2c"
-    }
+    useEffect(()=>{
+        if (props.mode) {
+            document.body.style.backgroundColor = "#2c2c2c"
+        }
+        else{
+            document.body.style.backgroundColor = "white"
+        }
+    }, [props.mode])
+    
 
 
 
@@ -114,18 +120,18 @@ export default function Blogindiv(props) {
 
         }
 
-    })
+    }, [blogobj.userid])
 
 
 
     const renderpopover =(
-        <Popover id="popover-basic">
+        <Popover id="popover-basic" >
           <Popover.Header as="h3">
               {authordetails ? 
               <div className="container">
                   <div className="row">
                       <div className="col-md-3">
-                      <img style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails.profilePicture ? "http://localhost:2000/staticindiv/" + authordetails.profilePicture.img : "http://localhost:2000/staticindiv/personplaceholder.png"}></img> 
+                      <img style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails.profilePicture ? authordetails.profilePicture.img : "http://localhost:2000/staticindiv/personplaceholder.png"}></img> 
                       </div>
 
                       <div className="col-md-6">
@@ -147,7 +153,7 @@ export default function Blogindiv(props) {
           <Popover.Body>
           {authordetails ? 
               <div className="container">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sequi tempore maxime itaque asperiores laudantium iure, ducimus accusantium earum modi.</p>
+                  <p>{authordetails.about.length < 400 ? authordetails.about : authordetails.about.substring(0, 400) + "..."}</p>
                  <i className="fa fa-map-marker " style={{padding:"7px"}}/> {authordetails.city} , {authordetails.country}
                  <br/>
                  <i className="fa fa-envelope " style={{padding:"7px"}}/> {authordetails.email} 
@@ -189,9 +195,10 @@ export default function Blogindiv(props) {
 
                                     <a target="_blank" rel="noreferrer" href="/"> <i className="fa fa-facebook fa-2x" style={{ padding: "7px" }} /></a>
                                     <a target="_blank" rel="noreferrer" href="/"><i className="fa fa-linkedin fa-2x" style={{ padding: "7px" }}></i></a>
-                                    <a target="_blank" rel="noreferrer" href="/"><i className="fa fa-instagram fa-2x" style={{ padding: "7px" }}></i></a>
-                                    <a target="_blank" rel="noreferrer" href="/"><i className="fa fa-whatsapp fa-2x" style={{ padding: "7px", color: "green" }}></i></a>
-                                    <a target="_blank" rel="noreferrer" href="/"><i className="fa fa-twitter fa-2x" style={{ padding: "7px", color: "turquiose" }}></i></a>
+                                    <a target="_blank" rel="noreferrer" href={`https://ig.me/?text=Have a look at this blog at localhost:3000/blogs/${id}`}><i className="fa fa-instagram fa-2x" style={{ padding: "7px" }}></i></a>
+                                    
+                                    <a target="_blank" rel="noreferrer" href={`https://wa.me/?text=Have a look at this blog at localhost:3000/blogs/${id}`} ><i className="fa fa-whatsapp fa-2x" style={{ padding: "7px", color: "green" }}></i></a>
+                                    <a target="_blank" rel="noreferrer" href={`https://twitter.com/intent/tweet?Have%20a%20look%20at%20this%20blog$20at%20localhost:3000/blogs/${id}`}><i className="fa fa-twitter fa-2x" style={{ padding: "7px", color: "turquiose" }}></i></a>
 
                                 </div>
 
@@ -204,7 +211,8 @@ export default function Blogindiv(props) {
                                                 {/* {console.log("http://localhost:2000/api/blog/"+element.img)} */}
                                                 <img
                                                     className="d-block w-100"
-                                                    src={"http://localhost:2000/static/" + element.img}
+                                                    // "http://localhost:2000/static/" +
+                                                    src={ element.img}
                                                     alt="First slide"
                                                     height="600px"
                                                 />
@@ -216,24 +224,25 @@ export default function Blogindiv(props) {
                                         })}
 
                                     </Carousel>
-                                    <h1 className="text-center my-2 " style={{ fontFamily: "Dancing Script" }}>{blogobj.title}</h1>
+                                    <h1 className="text-center my-2 " style={{ fontFamily: "Dancing Script" , color: props.mode ? "white" : "black"}}>{blogobj.title}</h1>
                                     <br />
 
 
-                                    <h6 className=""  >
+                                    <h6 className=""  style={{color: props.mode ? "white" : "black"}} >
                                         <OverlayTrigger
                                             placement="bottom"
                                             delay={{ show: 250, hide: 400 }}
                                             // overlay={renderTooltip}
                                             overlay = {renderpopover}
                                         >
-                                            <img style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails ? "http://localhost:2000/staticindiv/" + authordetails.profilePicture.img : "http://localhost:2000/staticindiv/personplaceholder.png"}></img>
+                                            {/* "http://localhost:2000/staticindiv/" + */}
+                                            <img style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails ?  authordetails.profilePicture.img : "http://localhost:2000/staticindiv/personplaceholder.png"}></img>
                                         </OverlayTrigger>
                                         {"    " + blogobj.name}</h6>
                                     {/* <br /> */}
 
 
-                                    <h6 style={{ display: "flex", justifyContent: "right" }}>Updated on {updatetime} </h6>
+                                    <h6 style={{ display: "flex", justifyContent: "right", color: props.mode ? "white" : "black" }}>Updated on {updatetime} </h6>
                                     <br />
                                     <br />
                                     <p style={{ fontSize: "20px" }}>
@@ -252,7 +261,7 @@ export default function Blogindiv(props) {
                         </div>
                         <div className="container commentdiv" style={{ width: "75%", paddingTop: "30px" }}>
                             {/* hey guys this is the comment section */}
-                            <Blogcomment blog_id={id} />
+                            <Blogcomment blog_id={id} mode = {props.mode}/>
 
 
                         </div>

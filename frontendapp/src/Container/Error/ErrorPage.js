@@ -14,14 +14,14 @@ const ErrorPage = () => {
                             <div className="container upper" >
                                 <div className="container d-flex align-items-start flex-column" >
                                     <div className="container" style={{ margin: "10px", padding: "10px" }}>
-                                        <i class="fa fa-exclamation-triangle" aria-hidden="true" style={{ fontSize: "60px" }}></i>
+                                        <i className="fa fa-exclamation-triangle" aria-hidden="true" style={{ fontSize: "60px" }}></i>
                                     </div>
                                     <div className="container " style={{ margin: "20px", paddingTop: "30px", paddingLeft: "30px" }}>
                                         <h3 className="textlarge">404 Error</h3>
                                     </div>
 
                                     <div className="col-md-6" style={{ padding: "30px", color: 'grey' }}>
-                                        {/* <hr class="divider" style={{height:"5px", color:"orange"}}></hr> */}
+                                        {/* <hr className="divider" style={{height:"5px", color:"orange"}}></hr> */}
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, harum beatae fugit, voluptatem aspernatur mollitia non, qui quas impedit vel incidunt. Sit necessitatibus architecto inventore magnam blanditiis exercitationem ipsa optio?</p>
                                     </div>
                                 </div>
@@ -35,9 +35,9 @@ const ErrorPage = () => {
                                             <a className="downlinks" href="/contactus">Contact Us</a>
                                         </div>
                                         <div className="col-md-6" style={{ display: "flex", justifyContent: "right" }}>
-                                            <a className="downlinks" href="/"><i class="fa fa-facebook" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
-                                            <a className="downlinks" href="/"><i class="fa fa-instagram" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
-                                            <a className="downlinks" href="/"><i class="fa fa-twitter" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
                                         </div>
 
                                     </div>
@@ -58,14 +58,14 @@ const ErrorPage = () => {
                             <div className="container upper" >
                                 <div className="container d-flex align-items-start flex-column" >
                                     <div className="container" style={{ margin: "10px", padding: "10px" }}>
-                                        <i class="fa fa-exclamation-triangle" aria-hidden="true" style={{ fontSize: "60px" }}></i>
+                                        <i className="fa fa-exclamation-triangle" aria-hidden="true" style={{ fontSize: "60px" }}></i>
                                     </div>
                                     <div className="container " style={{ margin: "20px", paddingTop: "30px", paddingLeft: "30px" }}>
                                         <h3 className="textlarge">404 Error</h3>
                                     </div>
 
                                     <div className="col-md-6" style={{ padding: "30px", color: 'grey' }}>
-                                        {/* <hr class="divider" style={{height:"5px", color:"orange"}}></hr> */}
+                                        {/* <hr className="divider" style={{height:"5px", color:"orange"}}></hr> */}
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, harum beatae fugit, voluptatem aspernatur mollitia non, qui quas impedit vel incidunt. Sit necessitatibus architecto inventore magnam blanditiis exercitationem ipsa optio?</p>
                                     </div>
                                 </div>
@@ -79,9 +79,9 @@ const ErrorPage = () => {
                                             <a className="downlinks" href="/contactus">Contact Us</a>
                                         </div>
                                         <div className="col-md-6" style={{ display: "flex", justifyContent: "right" }}>
-                                            <a className="downlinks" href="/"><i class="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i class="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i class="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
                                         </div>
 
                                     </div>
@@ -102,14 +102,14 @@ const ErrorPage = () => {
                             <div className="container upper" >
                                 <div className="container d-flex align-items-start flex-column" >
                                     <div className="container" style={{ margin: "10px", padding: "10px" }}>
-                                        <i class="fa fa-exclamation-triangle" aria-hidden="true" style={{ fontSize: "60px" }}></i>
+                                        <i className="fa fa-exclamation-triangle" aria-hidden="true" style={{ fontSize: "60px" }}></i>
                                     </div>
                                     <div className="container " style={{ margin: "20px", paddingTop: "30px", paddingLeft: "30px" }}>
                                         <h3 className="textlarge">404 Error</h3>
                                     </div>
 
                                     <div className="col-md-6" style={{ padding: "30px", color: 'grey' }}>
-                                        {/* <hr class="divider" style={{height:"5px", color:"orange"}}></hr> */}
+                                        {/* <hr className="divider" style={{height:"5px", color:"orange"}}></hr> */}
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, harum beatae fugit, voluptatem aspernatur mollitia non, qui quas impedit vel incidunt. Sit necessitatibus architecto inventore magnam blanditiis exercitationem ipsa optio?</p>
                                     </div>
                                 </div>
@@ -123,9 +123,9 @@ const ErrorPage = () => {
                                             <a className="downlinks" href="/contactus">Contact Us</a>
                                         </div>
                                         <div className="col-md-6" style={{ display: "flex", justifyContent: "right" }}>
-                                            <a className="downlinks" href="/"><i class="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i class="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i class="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
                                         </div>
 
                                     </div>

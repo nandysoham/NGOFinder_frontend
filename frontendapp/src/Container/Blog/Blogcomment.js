@@ -124,7 +124,7 @@ export const Blogcomment = (props) => {
                             "userId": ele.userid,
                             "comId": ele._id,
                             "fullName": indvcommenter.name,
-                            "avatarUrl": "http://localhost:2000/staticindiv/" + indvcommenter.profilePicture.img,
+                            "avatarUrl": indvcommenter.profilePicture.img,
                             "text": ele.description,
                         }
                         // console.log(indiv)
@@ -207,11 +207,11 @@ export const Blogcomment = (props) => {
 
     return (
         <div>
-            <div className="commentSection" >
+            <div className="commentSection" style={{ color: props.mode ? "white" : "black" }}>
                 <div className="header">{prevcomment.length} Comments</div>
                 {/* {setComment([])} */}
 
-                <CommentSection currentUser={profile._id && { userId: profile._id, avatarUrl: "http://localhost:2000/staticindiv/" + profile.profilePicture[0].img, name: profile.name }} commentsArray={prevcomment}
+                <CommentSection style={{ color: props.mode ? "white" : "black" }} currentUser={profile._id && { userId: profile._id, avatarUrl:  profile.profilePicture[0].img, name: profile.name }} commentsArray={prevcomment}
                     setComment={setComment} signinUrl={signinUrl} signupUrl={signupUrl} />
             </div>
 

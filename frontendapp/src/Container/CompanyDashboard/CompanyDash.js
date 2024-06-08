@@ -8,17 +8,17 @@ import Showprofile from './Showprofile';
 import Blogsbyauthor from './Blogsbyauthor';
 import UpdateDetails from './UpdateDetails';
 
-const IndivDash = (props) => {
+const CompanyDash = (props) => {
     
 
     const [profile, setprofile] = useState({})
     useEffect(() => {
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/indiv/getindivdetails',
+            url: 'http://localhost:2000/api/company/getindivdetails',
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem("indivtoken")
+                'auth-token': localStorage.getItem("companytoken")
             }
         };
 
@@ -27,7 +27,7 @@ const IndivDash = (props) => {
                 setprofile(response.data.userindiv)
                 // profilepicture
                 // profile.profilePicture[0].img
-                console.log(profile.profilePicture);
+                // console.log(profile.profilePicture);
 
             }).catch(function (error) {
                 console.error(error);
@@ -76,7 +76,7 @@ return (
 
                 <div className="container">
                     {/* "http://localhost:2000/staticindiv/"+ */}
-                <img src={profile.profilePicture ? profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"}  className="profile-image img-circle" style={{
+                <img src={profile.companyPictures ? profile.companyPictures[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"}  className="profile-image img-circle" style={{
                         // transform:"scale(2.0)",
                         height:"80px",
                         width:"80px",
@@ -133,7 +133,7 @@ return (
                         <Blogsbyauthor profile = {profile}/>
                     </div>
                     <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                        <UpdateDetails />
+                        <UpdateDetails/>
                     </div>
                 </div>
 
@@ -149,4 +149,4 @@ return (
 )
 }
 
-export default IndivDash
+export default CompanyDash
