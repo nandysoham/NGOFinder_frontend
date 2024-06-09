@@ -65,16 +65,16 @@ function App() {
 
   return (
     <>
-      <CompanyState>
-        <Router>
 
+      <Router>
+        <CompanyState>
           <Switch>
-            <Route exact path='/' exact component={() => <Home mode={mode} Togglemode={Togglemode} />} />
+            <Route exact path='/' component={() => <Home mode={mode} Togglemode={Togglemode} />} />
             {/* only this component needs to be exact */}
 
             <Route exact path='/aboutus' component={() => <Aboutus mode={mode} Togglemode={Togglemode} />} />
 
-            <Route exact path='/signin' component={() => <Signinoption redirect = {"signin"} mode={mode} Togglemode={Togglemode} />} />
+            <Route exact path='/signin' component={() => <Signinoption redirect={"signin"} mode={mode} Togglemode={Togglemode} />} />
             <Route exact path='/indiv/signin' component={() => <Signin mode={mode} Togglemode={Togglemode} />} />
             <Route exact path='/company/signin' component={() => <CompanySignin mode={mode} Togglemode={Togglemode} />} />
 
@@ -84,9 +84,9 @@ function App() {
             <Route exact path='/contactus' component={() => <Contactus mode={mode} Togglemode={Togglemode} />} />
 
 
-            <Route exact path='/blogs' exact component={() => <BlogIndex mode={mode} Togglemode={Togglemode} />} />
-            <Route exact path='/blogs/:id' exact component={() => <Blogindiv mode={mode} Togglemode={Togglemode} />} />
-            <Route exact path='/blog/createblog' exact component={() => <CreateBlog mode={mode} Togglemode={Togglemode} />} />
+            <Route exact path='/blogs' component={() => <BlogIndex mode={mode} Togglemode={Togglemode} />} />
+            <Route exact path='/blogs/:id' component={() => <Blogindiv mode={mode} Togglemode={Togglemode} />} />
+            <Route exact path='/blog/createblog' component={() => <CreateBlog mode={mode} Togglemode={Togglemode} />} />
 
 
             <Route exact path='/company/indivcompany/:id' component={() => <IndivCompany mode={mode} Togglemode={Togglemode} />} />
@@ -100,17 +100,19 @@ function App() {
             {/* <Route  path='/contactus' component = {Contactus}  mode = {mode}/> */}
           </Switch>
 
-        </Router>
+          <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 100 }}>
+            <DarkModeToggle
+              onChange={setMode}
+              checked={mode}
+              size={80}
 
-      </CompanyState>
-      <div style={{position:"fixed", bottom: "20px", right:"20px", zIndex:100}}>
-        <DarkModeToggle
-          onChange={setMode}
-          checked={mode}
-          size={80}
+            />
+          </div>
+        </CompanyState>
+      </Router>
 
-        />
-      </div>
+
+
     </>
   );
 }

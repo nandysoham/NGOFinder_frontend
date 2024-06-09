@@ -25,7 +25,7 @@ export default function Signin(props) {
 
 
     
-        const response = await fetch("http://localhost:2000/api/company/login",{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/company/login`,{
 
             method :"POST",
             headers : {

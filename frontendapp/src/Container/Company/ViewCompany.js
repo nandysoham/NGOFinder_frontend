@@ -11,6 +11,7 @@ export default function ViewCompany(props){
 
     useEffect(() => {
         fetchcompanies()
+        // eslint-disable-next-line
     }, [])
     return (
         <div>

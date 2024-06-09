@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios"
-import Layout from '../../Components/Layout'
 import { Row, Col, Form, Button } from 'react-bootstrap'
 
 const UpdateDetails = (props) => {
@@ -9,7 +8,7 @@ const UpdateDetails = (props) => {
         // get the initial detials of the company
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/company/getindivdetails',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/company/getindivdetails`,
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem("companytoken")
@@ -18,7 +17,7 @@ const UpdateDetails = (props) => {
 
         axios.request(options).then(function (response) {
                 setCompany(response.data.userindiv)
-                console.log(company)
+                // console.log(company)
             }).catch(function (error) {
                 console.error(error);
 
@@ -44,7 +43,7 @@ const UpdateDetails = (props) => {
             }
         }
 
-        const response = await fetch("http://localhost:2000/api/company/updateuserdetails", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/company/updateuserdetails`, {
 
             method: "PUT",
             headers: {
@@ -173,24 +172,24 @@ const UpdateDetails = (props) => {
 
                                 <Form.Group as={Col} controlId="country">
                                     <Form.Label>Country</Form.Label>
-                                    <Form.Control type="Text" name="country" value={company.country} onChange={handleChange} />/>
+                                    <Form.Control type="Text" name="country" value={company.country} onChange={handleChange} />
                                 </Form.Group>
 
                             </Row>
                             <Row className="mb-3">
                                 <Form.Group as={Col} controlId="zip">
                                     <Form.Label>Zip</Form.Label>
-                                    <Form.Control type="Text" name="pincode" value={company.pincode} onChange={handleChange} />/>
+                                    <Form.Control type="Text" name="pincode" value={company.pincode} onChange={handleChange} />
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="lattitude">
                                     <Form.Label>Lattitude</Form.Label>
-                                    <Form.Control type="Text" name="lattitude" value={company.lattitude} onChange={handleChange} />/>
+                                    <Form.Control type="Text" name="lattitude" value={company.lattitude} onChange={handleChange} />
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="longitude">
                                     <Form.Label>Longitude</Form.Label>
-                                    <Form.Control type="Text" name="longitude" value={company.longitude} onChange={handleChange} />/>
+                                    <Form.Control type="Text" name="longitude" value={company.longitude} onChange={handleChange} />
                                 </Form.Group>
                             </Row>
 

@@ -15,7 +15,7 @@ const IndivDash = (props) => {
     useEffect(() => {
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/indiv/getindivdetails',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/getindivdetails`,
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem("indivtoken")
@@ -27,7 +27,7 @@ const IndivDash = (props) => {
                 setprofile(response.data.userindiv)
                 // profilepicture
                 // profile.profilePicture[0].img
-                console.log(profile.profilePicture);
+                // console.log(profile.profilePicture);
 
             }).catch(function (error) {
                 console.error(error);
@@ -76,7 +76,7 @@ return (
 
                 <div className="container">
                     {/* "http://localhost:2000/staticindiv/"+ */}
-                <img src={profile.profilePicture ? profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"}  className="profile-image img-circle" style={{
+                <img alt="profile" src={profile.profilePicture ? profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"}  className="profile-image img-circle" style={{
                         // transform:"scale(2.0)",
                         height:"80px",
                         width:"80px",

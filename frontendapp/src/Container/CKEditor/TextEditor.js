@@ -1,12 +1,12 @@
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 // more media buttons in https://ckeditor.com/old/forums/CKEditor-3.x/need-add-media-button
 class TextEditor extends Component {
   render() {
-    const { value, onChange, setVar } = this.props // <- Dont mind this, just handling objects from props because Im using this as a shared component.
+    const { value, setVar } = this.props // <- Dont mind this, just handling objects from props because Im using this as a shared component.
 
     const custom_config = {
       extraPlugins: [MyCustomUploadAdapterPlugin],
@@ -85,7 +85,7 @@ class MyUploadAdapter {
       })
       .then(async (x) => {
         
-        const resp = await fetch("http://localhost:2000/api/uploadAdapter", {
+        const resp = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/uploadAdapter`, {
           method: "POST",
           body: x
         })

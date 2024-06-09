@@ -14,7 +14,7 @@ export default function Footer(props) {
 
     const submitemail = async(email)=>{
         
-        const response = await fetch("http://localhost:2000/api/addtonewsletter",{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/addtonewsletter`,{
 
             method :"POST",
             headers : {
@@ -25,7 +25,7 @@ export default function Footer(props) {
         })
 
         const token = await response.json();
-        if(token.success == false){
+        if(token.success === false){
             alert(token.error)
         }
         else{
@@ -46,7 +46,7 @@ export default function Footer(props) {
     useEffect(()=>{
         var options = {
             method: 'GET',
-            url: `http://localhost:2000/api/getweather`,
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/getweather`,
            
           };
 
@@ -106,12 +106,12 @@ export default function Footer(props) {
                                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style={{ visibility: "visible", animationDelay: "0.4s", animationName: "fadeInLeft" }}>
                                     <h3 className="f-title f_600 t_color f_size_18">Download</h3>
                                     <ul className="list-unstyled f_list">
-                                        <li><a href="#">Company</a></li>
-                                        <li><a href="#">Android App</a></li>
-                                        <li><a href="#">ios App</a></li>
-                                        <li><a href="#">Desktop</a></li>
-                                        <li><a href="#">Projects</a></li>
-                                        <li><a href="#">My tasks</a></li>
+                                        <li><a href="/">Company </a> </li>
+                                        <li><a href="/">Android App </a> </li>
+                                        <li><a href="/">ios App </a> </li>
+                                        <li><a href="/">Desktop </a> </li>
+                                        <li><a href="/">Projects </a> </li>
+                                        <li><a href="/">My tasks </a> </li>
                                     </ul>
                                 </div>
                             </div>
@@ -119,12 +119,12 @@ export default function Footer(props) {
                                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style={{ visibility: "visible", animationDelay: "0.6s", animationName: "fadeInLeft" }}>
                                     <h3 className="f-title f_600 t_color f_size_18">Help</h3>
                                     <ul className="list-unstyled f_list">
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Term &amp; conditions</a></li>
-                                        <li><a href="#">Reporting</a></li>
-                                        <li><a href="#">Documentation</a></li>
-                                        <li><a href="#">Support Policy</a></li>
-                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="/">FAQ</a></li>
+                                        <li><a href="/">Term &amp; conditions</a></li>
+                                        <li><a href="/">Reporting</a></li>
+                                        <li><a href="/">Documentation</a></li>
+                                        <li><a href="/">Support Policy</a></li>
+                                        <li><a href="/">Privacy</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -132,10 +132,10 @@ export default function Footer(props) {
                                 <div className="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style={{ visibility: "visible", animationDelay: "0.8s", animationName: "fadeInLeft" }}>
                                     <h3 className="f-title f_600 t_color f_size_18">Team Solutions</h3>
                                     <div className="f_social_icon">
-                                        <a href="#" className="fa fa-facebook"></a>
-                                        <a href="#" className="fa fa-twitter"></a>
-                                        <a href="#" className="fa fa-linkedin"></a>
-                                        <a href="#" className="fa fa-pinterest"></a>
+                                        <a href="/" className="fa fa-facebook"> </a>
+                                        <a href="/" className="fa fa-twitter"> </a>
+                                        <a href="/" className="fa fa-linkedin"> </a>
+                                        <a href="/" className="fa fa-pinterest"> </a>
                                     </div>
                                 </div>
                                 <div className="row my-3">
@@ -179,7 +179,7 @@ export default function Footer(props) {
                                 <p className="mb-0 f_400">© Ecology Team  2021 All rights reserved.</p>
                             </div>
                             <div className="col-lg-6 col-sm-5 text-right">
-                                <p>Made by <i className="icon_heart"></i>  <a href="http://github.com/nandysoham" target="_blank">nandysoham</a></p>
+                                <p>Made by <i className="icon_heart"></i>  <a href="http://github.com/nandysoham" rel="noreferrer" target="_blank">nandysoham</a></p>
                             </div>
                         </div>
                     </div>

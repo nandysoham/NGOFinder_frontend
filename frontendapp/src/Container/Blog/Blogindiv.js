@@ -5,7 +5,7 @@ import Layout from '../../Components/Layout'
 import axios from "axios"
 import Spinner from '../../Components/Spinner/Spinner'
 import parse from 'html-react-parser'
-import { Carousel, OverlayTrigger, Tooltip, Popover } from 'react-bootstrap'
+import { Carousel, OverlayTrigger, Popover } from 'react-bootstrap'
 import { Blogcomment } from './Blogcomment'
 
 
@@ -59,7 +59,7 @@ export default function Blogindiv(props) {
 
     useEffect(() => {
         async function fetchData() {
-            let recentblogurl = `http://127.0.0.1:2000/api/blog/${id}`;
+            let recentblogurl = `${process.env.REACT_APP_BACKEND_URL}/api/blog/${id}`;
             axios.get(recentblogurl)
                 .then(res => {
                     const updatedblogobj = res.data;
@@ -71,11 +71,13 @@ export default function Blogindiv(props) {
         }
 
         fetchData();
-        let updatedate = new Date(blogobj.updatedAt);
-        let year = updatedate.getFullYear();
-        let month = updatedate.getMonth();
-        let day = updatedate.getDate();
-        setupdatetime(day + "-" + month + "-" + year);
+        if(blogobj){
+            let updatedate = new Date(blogobj.updatedAt);
+            let year = updatedate.getFullYear();
+            let month = updatedate.getMonth();
+            let day = updatedate.getDate();
+            setupdatetime(day + "-" + month + "-" + year);
+        }
         setloader(false)
 
     }, [blogobj, id])
@@ -89,7 +91,7 @@ export default function Blogindiv(props) {
         // console.log('individ  ==> '+individ)
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/indiv/public/indivdetails',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/public/indivdetails`,
             headers : {
                 'Content-Type': 'application/json',
             },
@@ -108,19 +110,21 @@ export default function Blogindiv(props) {
             });
 
           } 
+          
 
 
     }
 
     useEffect(()=>{
-        if(blogobj.userid){
+        if(blogobj?.userid){
 
         fetchpublicdetails(blogobj.userid)
-        console.log(authordetails)
+        // console.log(authordetails)
 
         }
 
-    }, [blogobj.userid])
+         // eslint-disable-next-line
+    }, [blogobj?.userid])
 
 
 
@@ -131,7 +135,7 @@ export default function Blogindiv(props) {
               <div className="container">
                   <div className="row">
                       <div className="col-md-3">
-                      <img style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails.profilePicture ? authordetails.profilePicture.img : "http://localhost:2000/staticindiv/personplaceholder.png"}></img> 
+                      <img alt="profile" style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails.profilePicture ? authordetails.profilePicture.img : `${process.env.REACT_APP_BACKEND_URL}/staticindiv/personplaceholder.png`}></img> 
                       </div>
 
                       <div className="col-md-6">
@@ -175,9 +179,12 @@ export default function Blogindiv(props) {
         <div>
             {/* {console.log(blogobj.blogPictures[0].img)} */}
             <Layout mode={props.mode} Togglemode={props.Togglemode}>
+                
                 {loader ?
                     <Spinner> </Spinner>
                     :
+                    
+                        blogobj ? 
                     <>
                     
                         <div className="row">
@@ -217,8 +224,8 @@ export default function Blogindiv(props) {
                                                     height="600px"
                                                 />
                                                 <Carousel.Caption>
-                                                    <h3>First slide label</h3>
-                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                                    {/* <h3>First slide label</h3>
+                                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                                                 </Carousel.Caption>
                                             </Carousel.Item>
                                         })}
@@ -236,7 +243,7 @@ export default function Blogindiv(props) {
                                             overlay = {renderpopover}
                                         >
                                             {/* "http://localhost:2000/staticindiv/" + */}
-                                            <img style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails ?  authordetails.profilePicture.img : "http://localhost:2000/staticindiv/personplaceholder.png"}></img>
+                                            <img alt="profile" style={{ height: "40px", width: "40px", borderRadius: "50%", transform: "1.5x" }} src={authordetails ?  authordetails.profilePicture.img : `${process.env.REACT_APP_BACKEND_URL}/staticindiv/personplaceholder.png`}></img>
                                         </OverlayTrigger>
                                         {"    " + blogobj.name}</h6>
                                     {/* <br /> */}
@@ -267,6 +274,10 @@ export default function Blogindiv(props) {
                         </div>
 
                     </>
+                    :
+
+                                    
+                    <h2>Blog not found</h2>
 
 
                 }

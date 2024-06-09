@@ -17,7 +17,7 @@ const CompanyState = (props) =>{
 
     const fetchcompanies=() => {
         async function fetchData(){
-            let companiesbydistanceurl = "http://localhost:2000/api/company/showcompanies/bydistance";
+            let companiesbydistanceurl = `${process.env.REACT_APP_BACKEND_URL}/api/company/showcompanies/bydistance`;
             axios.post(companiesbydistanceurl)
                 .then(res => {
                     setcompanies(res.data)

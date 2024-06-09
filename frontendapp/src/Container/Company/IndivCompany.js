@@ -5,35 +5,41 @@ import Layout from '../../Components/Layout'
 const IndivCompany = () => {
     const { id } = useParams() 
     const [company, setCompany] = useState(null);
-    console.log(id)
-    useEffect(async ()=>{
-
+    // console.log(id)
+    useEffect( ()=>{
+        async function fetchResponse(){
         const response = await axios.request({
-            url : "http://localhost:2000/api/company/public/companydetails",
+            url : `${process.env.REACT_APP_BACKEND_URL}/api/company/public/companydetails`,
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             data: {
                 userid : id
             }
         })
+
+        if(response.data.success === true){
     
-        setCompany(response.data.userindiv)
-        console.log(company)
-        // console.log(response.data.userindiv)
-        console.log(response)
-        if(company && company.companyPictures.length < 0){
-            company.companyPictures = [{
-                img : "",
-                public_id : ""
-            }]
+            setCompany(response.data.userindiv)
+            // console.log(company)
+            // console.log(response.data.userindiv)
+            // console.log(response)
+            if(company && company.companyPictures.length < 0){
+                company.companyPictures = [{
+                    img : "",
+                    public_id : ""
+                }]
+            }
         }
+    }
+    fetchResponse();
 
         
-
-    }, [])
+    // eslint-disable-next-line
+    }, [id])
 
     return (
         <Layout>
+        {company ? 
         <div className="container" style={{minHeight:"100vh", maxWidth:"100vw", }}>
             <div className="imageContainer container" style={{height: "40vh", width:"100vw", backgroundImage: company ? `url(${company.companyPictures[0].img})` : ""}}>
 
@@ -66,7 +72,12 @@ const IndivCompany = () => {
 
 
         </div>
+        : 
+        <div> No such company exists</div>
+       }
         </Layout>
+
+        
     )
 }
 

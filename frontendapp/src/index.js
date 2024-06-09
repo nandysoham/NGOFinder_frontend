@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import ErrorBoundary from './Container/Error/ErrorBoundary';
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <ErrorBoundary>
     <App />
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );

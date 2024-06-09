@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { Link, NavLink, useHistory } from 'react-router-dom'
-import ToggleMode from '../ToggleMode'
+
 import axios from "axios"
 // import '../ToggleMode/Toggle.css';
 import "./header.css"
@@ -28,14 +28,14 @@ export default function Header(props) {
 
     const onclicksignout = () => {
         console.log("hello in onclicksignout")
-        if (localStorage.getItem("type") == "indiv") {
+        if (localStorage.getItem("type") === "indiv") {
             localStorage.removeItem("type")
             localStorage.removeItem("indivtoken")
             // localStorage.removeItem("user")
             history.push("/indiv/signin")
         }
 
-        if (localStorage.getItem("type") == "company") {
+        if (localStorage.getItem("type") === "company") {
             localStorage.removeItem("type")
             localStorage.removeItem("companytoken")
             history.push("/company/signin")
@@ -57,9 +57,9 @@ export default function Header(props) {
             console.log(indivdata)
 
 
-            var options = {
+            let options = {
                 method: 'POST',
-                url: 'http://localhost:2000/api/indiv/getindivdetails',
+                url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/getindivdetails`,
                 headers: {
                     'Content-Type': 'application/json',
                     'auth-token': localStorage.getItem("indivtoken")
@@ -67,11 +67,7 @@ export default function Header(props) {
             };
 
             axios.request(options).then(function (response) {
-                // console.log(response.data);
                 setprofile(response.data.userindiv)
-                // profilepicture
-                // profile.profilePicture[0].img
-                console.log(profile.profilePicture);
 
             }).catch(function (error) {
                 console.error(error);
@@ -83,9 +79,9 @@ export default function Header(props) {
 
         if (localStorage.getItem("companytoken")) {
 
-            var options = {
+            let options = {
                 method: 'POST',
-                url: 'http://localhost:2000/api/company/getindivdetails',
+                url: `${process.env.REACT_APP_BACKEND_URL}/api/company/getindivdetails`,
                 headers: {
                     'Content-Type': 'application/json',
                     'auth-token': localStorage.getItem("companytoken")
@@ -93,12 +89,7 @@ export default function Header(props) {
             };
 
             axios.request(options).then(function (response) {
-                // console.log(response.data);
                 setprofile(response.data.userindiv)
-                console.log(profile)
-                // profilepicture
-                // profile.profilePicture[0].img
-                // console.log(profile.profilePicture);
 
             }).catch(function (error) {
                 console.error(error);
@@ -141,7 +132,7 @@ export default function Header(props) {
                                         <h6 style={{ padding: "7px", color: (dark ? "white" : "black") }}> Hi {profile.name} ! </h6>
                                         <div className="profile-image" style={{ overflow: "hidden" }}>
 
-                                            <img src={profile.profilePicture ? profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"} className="profile-image img-circle" style={{
+                                            <img alt="profile" src={profile.profilePicture ? profile.profilePicture[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"} className="profile-image img-circle" style={{
                                                 transform: "scale(1.5)"
                                             }} />
 
@@ -165,7 +156,7 @@ export default function Header(props) {
                                         <h6 style={{ padding: "7px" }}> Hi {profile.companyname} ! </h6>
                                         <div className="profile-image" style={{ overflow: "hidden" }}>
 
-                                            <img src={profile.companyPictures ? profile.companyPictures[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"} className="profile-image img-circle" style={{
+                                            <img alt="profile" src={profile.companyPictures ? profile.companyPictures[0].img : "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"} className="profile-image img-circle" style={{
                                                 transform: "scale(1.5)"
                                             }} />
 

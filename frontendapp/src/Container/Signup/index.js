@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Layout from '../../Components/Layout'
 import { Row, Col, Form, Button } from 'react-bootstrap'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 
 export default function Signin(props) {
     let history = useHistory()
@@ -47,7 +47,7 @@ export default function Signin(props) {
             }
         }
 
-        const response = await fetch("http://localhost:2000/api/company/createuser", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/company/createuser`, {
 
             method: "POST",
             headers: {

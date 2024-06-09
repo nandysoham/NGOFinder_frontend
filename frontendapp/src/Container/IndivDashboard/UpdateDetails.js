@@ -8,7 +8,7 @@ const UpdateDetails = (props) => {
         // get the initial detials of the individual
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/indiv/getindivdetails',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/getindivdetails`,
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem("indivtoken")
@@ -43,7 +43,7 @@ const UpdateDetails = (props) => {
             }
         }
 
-        const response = await fetch("http://localhost:2000/api/indiv/updateuserdetails", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/indiv/updateuserdetails`, {
 
             method: "PUT",
             headers: {

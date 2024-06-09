@@ -1,10 +1,10 @@
-import React, { useState, useEffect, Component } from 'react'
-import { useHistory } from 'react-router'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import Layout from '../../Components/Layout'
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import { CKEditor } from '@ckeditor/ckeditor5-react';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios'
-import parse from 'html-react-parser'
+
 import TextEditor from '../CKEditor/TextEditor';
 
 
@@ -29,7 +29,7 @@ const CreateBlog = () => {
             
             var options = {
                 method: 'POST',
-                url: 'http://localhost:2000/api/indiv/getindivdetails',
+                url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/getindivdetails`,
                 headers: {
                     'Content-Type': 'application/json',
                     'auth-token': localStorage.getItem("indivtoken")
@@ -64,14 +64,14 @@ const CreateBlog = () => {
         formData.append('description', description);
 
 
-        if (pics.length != 0) {
+        if (pics.length !== 0) {
             for (const single_file of pics) {
                 formData.append('blogPictures', single_file)
             }
         }
 
 
-        const response = await fetch("http://localhost:2000/api/blog/create", {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blog/create`, {
 
             method: "POST",
             headers: {
@@ -103,7 +103,7 @@ const CreateBlog = () => {
            
            var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/indiv/getindivdetails',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/getindivdetails`,
             headers : {
                 'Content-Type': 'application/json',
                 'auth-token' : localStorage.getItem("indivtoken")

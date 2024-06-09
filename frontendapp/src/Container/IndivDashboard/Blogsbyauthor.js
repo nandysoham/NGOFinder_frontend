@@ -14,9 +14,14 @@ export default function Blogsbyauthor(props) {
 
 
     // added extra for color matching
-    if (props.mode) {
-        document.body.style.backgroundColor = "#1c1c1c"
-    }
+    useEffect(()=>{
+        if (props.mode) {
+            document.body.style.backgroundColor = "#2c2c2c"
+        }
+        else{
+            document.body.style.backgroundColor = "white"
+        }
+    }, [props.mode])
 
 
     const [recentblogs, setrecentblogs] = useState([])
@@ -32,7 +37,7 @@ export default function Blogsbyauthor(props) {
             // console.log("profileid == > " + profileid)
             // console.log(props.profile._id)
             // console.log("cnt")
-            let recentblogurl = `http://localhost:2000/api/blogs/byauthor?pageval=${pageno}&perPage=4&authorid=${props.profile._id}`;
+            let recentblogurl = `${process.env.REACT_APP_BACKEND_URL}/api/blogs/byauthor?pageval=${pageno}&perPage=4&authorid=${props.profile._id}`;
             axios.get(recentblogurl)
                 .then(res => {
                     const bloglist = res.data;
@@ -48,7 +53,7 @@ export default function Blogsbyauthor(props) {
         }
 
         fetchData();
-        },[props.profile._id])
+        },[props.profile._id, pageno])
     // }, [recentblogs, loader])
 
 
@@ -60,7 +65,7 @@ export default function Blogsbyauthor(props) {
 
         if(!hasmore) return;
         async function fetchData() {
-            let recentblogurl = `http://localhost:2000/api/blogs/byauthor?pageval=${pageno}&perPage=4&authorid=${props.profile._id}`;
+            let recentblogurl = `${process.env.REACT_APP_BACKEND_URL}/api/blogs/byauthor?pageval=${pageno}&perPage=4&authorid=${props.profile._id}`;
             axios.get(recentblogurl)
                 .then(res => {
                     const bloglist = res.data;

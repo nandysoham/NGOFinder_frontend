@@ -1,9 +1,9 @@
-import React, { useState, useEffect, PureComponent } from 'react'
+import React, { useState, useEffect } from 'react'
 // comment section imports
 import { CommentSection } from 'react-comments-section'
 import 'react-comments-section/dist/index.css'
 
-import data from "./data.json"
+
 import axios from "axios"
 
 
@@ -16,12 +16,10 @@ export const Blogcomment = (props) => {
 
     const signinUrl = "/signin"
     const signupUrl = "/signup"
-    let count = 0
     // comment.map(i => { count += 1; i.replies && i.replies.map(i => count += 1) })
     /* ====================================================================== */
 
     const [prevcomment, setprevcomment] = useState([])
-    const [publicdetails, setpublicdetails] = useState({})
     const [profile, setprofile] = useState({})
 
 
@@ -30,7 +28,7 @@ export const Blogcomment = (props) => {
     const fetchuserdetails = () => {
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/indiv/getindivdetails',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/getindivdetails`,
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem("indivtoken")
@@ -52,37 +50,37 @@ export const Blogcomment = (props) => {
 
 
     // ======================   Hnadler for getting the details of the person shown in the comments section =================================
-    const fetchpublicdetails =  (individ) => {
+    // const fetchpublicdetails =  (individ) => {
 
-        // console.log('individ  ==> '+individ)
-        var options = {
-            method: 'POST',
-            url: 'http://localhost:2000/api/indiv/public/indivdetails',
-            headers : {
-                'Content-Type': 'application/json',
-            },
-            data :{
-                'userid' : individ,
-            }
-          };
+    //     // console.log('individ  ==> '+individ)
+    //     var options = {
+    //         method: 'POST',
+    //         url: 'http://localhost:2000/api/indiv/public/indivdetails',
+    //         headers : {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         data :{
+    //             'userid' : individ,
+    //         }
+    //       };
 
-          axios.request(options).then( (response)=> response.data.returnable
-            //   console.log("returing the response");
-            // setpublicdetails(response.data.returnable)
+    //       axios.request(options).then( (response)=> response.data.returnable
+    //         //   console.log("returing the response");
+    //         // setpublicdetails(response.data.returnable)
 
 
-        ).catch(error => error
+    //     ).catch(error => error
 
-        );
+    //     );
 
-    }
+    // }
 
     // ======================   Hnadler for fetching previously posted comments =================================
     const fetchprevcomments = () => {
         // console.log("blog id "+props.blog_id)
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/comments/fetchcomments',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/comments/fetchcomments`,
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -91,11 +89,11 @@ export const Blogcomment = (props) => {
             }
         };
 
-        axios.request(options).then( function (response) {
-            
+        axios.request(options).then(function (response) {
+
             let validarray = [];
 
-            
+
 
             if (response.data.comments.length > 0) {
                 response.data.comments.map(async (ele) => {
@@ -105,22 +103,22 @@ export const Blogcomment = (props) => {
                     // console.log(jsresp);
                     var options2 = {
                         method: 'POST',
-                        url: 'http://localhost:2000/api/indiv/public/indivdetails',
-                        headers : {
+                        url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/public/indivdetails`,
+                        headers: {
                             'Content-Type': 'application/json',
                         },
-                        data :{
-                            'userid' : ele.userid,
+                        data: {
+                            'userid': ele.userid,
                         }
-                      };
-                   
-            
-                      axios.request(options2).then( (resp)=> {
+                    };
+
+
+                    axios.request(options2).then((resp) => {
                         //   console.log("hello herer")
-                          let indvcommenter = resp.data.returnable
+                        let indvcommenter = resp.data.returnable
                         //   console.log("indivcomment")
                         //   console.log(indvcommenter)
-                          let indiv = {
+                        let indiv = {
                             "userId": ele.userid,
                             "comId": ele._id,
                             "fullName": indvcommenter.name,
@@ -130,16 +128,16 @@ export const Blogcomment = (props) => {
                         // console.log(indiv)
                         validarray.push(indiv);
 
-                      }
+                    }
                         //   console.log("returing the response");
                         // setpublicdetails(response.data.returnable)
-            
-            
+
+
                     ).catch(error => {
                         console.log(error)
                     })
                     // let indvcommenter = publicdetails
-                    
+
                     // console.log("publicdetails state ==> " + publicdetails.name);
                     // console.log("comment list  ==> " + indvcommenter)
                     // console.log(indvcommenter);
@@ -162,7 +160,7 @@ export const Blogcomment = (props) => {
     const postcomment = () => {
         var options = {
             method: 'POST',
-            url: 'http://localhost:2000/api/comments/add',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/comments/add`,
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem("indivtoken")
@@ -195,13 +193,14 @@ export const Blogcomment = (props) => {
         }
 
 
-
-    }, [ profile, comment, prevcomment ])
+        // eslint-disable-next-line
+    }, [profile, comment, prevcomment])
     // profile, comment, prevcomment
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchprevcomments();
-    },[])
+        // eslint-disable-next-line   
+    }, [])
 
 
 
@@ -211,7 +210,7 @@ export const Blogcomment = (props) => {
                 <div className="header">{prevcomment.length} Comments</div>
                 {/* {setComment([])} */}
 
-                <CommentSection style={{ color: props.mode ? "white" : "black" }} currentUser={profile._id && { userId: profile._id, avatarUrl:  profile.profilePicture[0].img, name: profile.name }} commentsArray={prevcomment}
+                <CommentSection style={{ color: props.mode ? "white" : "black" }} currentUser={profile._id && { userId: profile._id, avatarUrl: profile.profilePicture[0].img, name: profile.name }} commentsArray={prevcomment}
                     setComment={setComment} signinUrl={signinUrl} signupUrl={signupUrl} />
             </div>
 

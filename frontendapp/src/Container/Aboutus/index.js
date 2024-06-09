@@ -80,7 +80,7 @@ export default function Aboutus(props) {
                     <div className="container aboutcard" >
                         <Row xs={1} md={3} className="g-4">
                             {Array.from({ length: 6 }).map((_, idx) => (
-                                <Col>
+                                <Col key={idx}>
                                     <Card className="aboutuscardclass my-3 ">
                                         <Card.Img variant="top" src={memberdetails[idx].image} style={{height:"400px" , position:"center", borderRadius: "15px"}} />
                                         {/* <Card.Img variant="top" src="/img/members/soham.jpeg" /> */}

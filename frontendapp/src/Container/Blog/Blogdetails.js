@@ -28,20 +28,21 @@ export default function Blogdetails(props) {
 
     useEffect(() => {
         async function fetchData() {
-            let recentblogurl = `http://localhost:2000/api/blog/recententries?pageval=${pageno}&perPage=2`;
+            let recentblogurl = `${process.env.REACT_APP_BACKEND_URL}/api/blog/recententries?pageval=${pageno}&perPage=2`;
             axios.get(recentblogurl)
                 .then(res => {
                     const bloglist = res.data;
                     setrecentblogs(bloglist.docs)
                     sethasmore(bloglist.hasNextPage)
-                    console.log("use effect",recentblogs)
+                    // console.log("use effect",recentblogs)
                 })
 
             setloader(false)
-            setpageno(pageno + 1)
+            setpageno(p => p + 1)
         }
 
         fetchData();
+        // eslint-disable-next-line
         },[])
     // }, [recentblogs, loader])
 
@@ -53,7 +54,7 @@ export default function Blogdetails(props) {
 
         if(!hasmore) return;
         async function fetchData() {
-            let recentblogurl = `http://localhost:2000/api/blog/recententries?pageval=${pageno}&perPage=2`;
+            let recentblogurl = `${process.env.REACT_APP_BACKEND_URL}/api/blog/recententries?pageval=${pageno}&perPage=2`;
             axios.get(recentblogurl)
                 .then(res => {
                     const bloglist = res.data;

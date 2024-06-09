@@ -9,7 +9,7 @@ const ErrorPage = () => {
                 <div className="carousel-inner" style={{ position: "center", height:"100vh" }} >
                     <div className="carousel-item active carouseldiv" data-bs-interval="5000" >
 
-                        <img src="http://localhost:2000/staticerrors/woods.jpg" style={{ position: "center", minHeight:"100vh" }} className="d-block w-100 carouselpic" alt="image1" />
+                        <img src={`${process.env.REACT_APP_BACKEND_URL}/staticerrors/woods.jpg`} style={{ position: "center", minHeight:"100vh" }} className="d-block w-100 carouselpic" alt="image1" />
                         <div className="carousel-content "  >
                             <div className="container upper" >
                                 <div className="container d-flex align-items-start flex-column" >
@@ -35,9 +35,9 @@ const ErrorPage = () => {
                                             <a className="downlinks" href="/contactus">Contact Us</a>
                                         </div>
                                         <div className="col-md-6" style={{ display: "flex", justifyContent: "right" }}>
-                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
-                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
-                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "50px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "50px" }}></i> </a>
+                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "50px" }}></i> </a>
+                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "50px" }}></i> </a>
                                         </div>
 
                                     </div>
@@ -79,9 +79,9 @@ const ErrorPage = () => {
                                             <a className="downlinks" href="/contactus">Contact Us</a>
                                         </div>
                                         <div className="col-md-6" style={{ display: "flex", justifyContent: "right" }}>
-                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i> </a>
+                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i> </a>
+                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i> </a>
                                         </div>
 
                                     </div>
@@ -97,7 +97,7 @@ const ErrorPage = () => {
                     </div>
                     <div className="carousel-item  carouseldiv" data-bs-interval="5000" >
 
-                        <img src="http://localhost:2000/staticerrors/greens.jpg" style={{ position: "center", minHeight:"100vh" }} className="d-block w-100 carouselpic" alt="image1" />
+                        <img src={`${process.env.REACT_APP_BACKEND_URL}/staticerrors/greens.jpg`} style={{ position: "center", minHeight:"100vh" }} className="d-block w-100 carouselpic" alt="image1" />
                         <div className="carousel-content "  >
                             <div className="container upper" >
                                 <div className="container d-flex align-items-start flex-column" >
@@ -123,9 +123,9 @@ const ErrorPage = () => {
                                             <a className="downlinks" href="/contactus">Contact Us</a>
                                         </div>
                                         <div className="col-md-6" style={{ display: "flex", justifyContent: "right" }}>
-                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
-                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i></a>
+                                            <a className="downlinks" href="/"><i className="fa fa-facebook" aria-hidden="true" style={{ fontSize: "60px" }}></i> </a>
+                                            <a className="downlinks" href="/"><i className="fa fa-instagram" aria-hidden="true" style={{ fontSize: "60px" }}></i> </a>
+                                            <a className="downlinks" href="/"><i className="fa fa-twitter" aria-hidden="true" style={{ fontSize: "60px" }}></i> </a>
                                         </div>
 
                                     </div>
