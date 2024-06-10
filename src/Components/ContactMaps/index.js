@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibmFuZHlzb2hhbSIsImEiOiJja3A3MWNrbTIyOWVsMzJtd3g4ZjRhZHkzIn0.HLndxWk3ECFvIL9p-Y4vBg';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 export default function ContactMaps(props) {
     const mapContainer = useRef(null);

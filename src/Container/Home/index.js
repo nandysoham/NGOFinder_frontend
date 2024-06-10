@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import { Link } from 'react-router-dom'
 
 import Layout from '../../Components/Layout'
 
@@ -46,7 +47,7 @@ export default function Home(props) {
                             <div>
                             <h1 className="gradient-text my-2">The Search ends here... </h1>
                             <h3 className="gradient-text2 my-2"> Find all your NGOs near you!</h3>
-                            <button className="btn btn-success my-5"> Take me to NGOs Quick!</button>
+                            <Link to="/company/viewcompany/bydistance"><button className="btn btn-success my-5"> Take me to NGOs Quick!</button></Link>
                             </div>
                         </div>
                     </div>
@@ -60,7 +61,7 @@ export default function Home(props) {
                             <div>
                             <h1 className="gradient-text my-2">Or Wish to reach out to people about their experiences... </h1>
                             <h3 className="gradient-text2 my-2"> We got you covered</h3>
-                            <button className="btn btn-success my-5"> Jump to blogs!</button>
+                            <Link to="/blogs"><button className="btn btn-success my-5"> Jump to blogs!</button> </Link>
                             </div>
                         </div>
                         <div className="col-md-8" style={{minHeight:"100vh", display:"flex",flexDirection:"initial", alignItems:"center"}}>
