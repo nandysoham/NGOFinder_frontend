@@ -44,7 +44,7 @@ export default function Header(props) {
         }
     }
 
-    const fetchindivuser = () => {
+    const fetchindivUser = () => {
 
 
 
@@ -53,7 +53,7 @@ export default function Header(props) {
 
     useEffect(() => {
         if (localStorage.getItem("indivtoken")) {
-            const indivdata = fetchindivuser()
+            const indivdata = fetchindivUser()
             console.log(indivdata)
 
 

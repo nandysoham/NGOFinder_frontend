@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ngofinder_frontend
+    container_name: ngofinder_frontend_c
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - REACT_APP_BACKEND_URL= 
+      - REACT_APP_MAPBOX_TOKEN = 
+
+    ports:
+      - "3000:3000"
+

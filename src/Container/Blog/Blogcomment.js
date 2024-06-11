@@ -25,7 +25,7 @@ export const Blogcomment = (props) => {
 
 
     // ======================  Protected Hnadler for getting the info of the logged in user=================================
-    const fetchuserdetails = () => {
+    const fetchindivUserdetails = () => {
         var options = {
             method: 'POST',
             url: `${process.env.REACT_APP_BACKEND_URL}/api/indiv/getindivdetails`,
@@ -181,7 +181,7 @@ export const Blogcomment = (props) => {
     }
 
     useEffect(() => {
-        fetchuserdetails();
+        fetchindivUserdetails();
         // fetchprevcomments();
         // console.log(comment);
 

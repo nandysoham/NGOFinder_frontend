@@ -15,7 +15,6 @@
     "html-react-parser": "^1.4.0",
     "jest-canvas-mock": "^2.5.2",
     "mapbox-gl": "^2.4.1",
-    "node-gyp": "^10.1.0",
     "react": "^16.14.0",
     "react-bootstrap": "^2.0.0-beta.6",
     "react-comments-section": "^1.0.7",
@@ -52,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "node-gyp": "^8.4.1"
   }
 }
