@@ -17,12 +17,13 @@ const UpdateDetails = (props) => {
 
         axios.request(options).then(function (response) {
             setIndividual(response.data.userindiv)
-            console.log(individual)
+            // console.log(individual)
         }).catch(function (error) {
             console.error(error);
 
         });
-    }, [individual])
+    
+    }, [])
 
 
     const handleChange = (event) => {

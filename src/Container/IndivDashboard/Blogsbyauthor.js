@@ -9,8 +9,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 
 export default function Blogsbyauthor(props) {
-    console.log(props.profile)
-    console.log(props.profile._id)
+    // console.log(props.profile)
+    // console.log(props.profile._id)
 
 
     // added extra for color matching
@@ -53,7 +53,8 @@ export default function Blogsbyauthor(props) {
         }
 
         fetchData();
-        },[props.profile._id, pageno])
+        // eslint-disable-next-line
+        },[])
     // }, [recentblogs, loader])
 
 
